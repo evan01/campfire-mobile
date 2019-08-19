@@ -1,0 +1,7 @@
+node_modules/**
+lib/**
+ios/**
+android/**
+metro.config.js
+babel.config.js
+storybook/**
