@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CfLogo renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "height": 50,
+    }
+  }
+>
+  <Text>
+    <Text
+      style={
+        Object {
+          "color": "#EE964B",
+          "fontFamily": "Roboto-Light",
+          "fontSize": 38,
+        }
+      }
+    >
+      Camp
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#F95738",
+          "fontFamily": "Roboto-Light",
+          "fontSize": 38,
+        }
+      }
+    >
+      Fire
+    </Text>
+  </Text>
+</View>
+`;

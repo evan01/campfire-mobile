@@ -10,13 +10,13 @@
     "flow": "flow",
     "build": "babel src/ -d lib/",
     "prepublish": "yarn run build",
+    "prestorybook": "rnstl",
     "storybook": "start-storybook -p 6006",
     "flightcheck": "eslint . && flow && jest"
   },
   "dependencies": {
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
-    "@storybook/theming": "^5.1.10",
     "flow-bin": "0.98.0",
     "prop-types": "^15.7.2",
     "react": "16.8.6",
@@ -35,19 +35,22 @@
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/preset-flow": "^7.0.0",
+    "@storybook/theming": "^5.1.10",
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
     "@storybook/addon-actions": "^5.1.10",
     "@storybook/addon-links": "^5.1.10",
     "@storybook/addons": "^5.1.10",
-    "@storybook/react-native": "^5.1.10",
-    "@storybook/react-native-server": "^5.1.10",
+    "@storybook/react-native": "5.0.6",
+    "@storybook/react-native-server": "^5.1.11",
+    "core-js": "^3.2.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "eslint": "^5.1.0",
     "jest": "^24.8.0",
     "metro-react-native-babel-preset": "^0.55.0",
     "react-dom": "16.8.6",
+    "react-native-storybook-loader": "^1.8.0",
     "react-test-renderer": "16.8.6"
   },
   "jest": {
@@ -69,5 +72,20 @@
         "statements": -10
       }
     }
+  },
+  "config": {
+    "react-native-storybook-loader": {
+      "searchDir": [
+        "./src"
+      ],
+      "pattern": "**/*.story.js"
+    }
+  },
+  "rnpm": {
+    "assets": [
+      "./src/assets/fonts/",
+      "./src/assets/images/appIcon",
+      "./src/assets/images/splash"
+    ]
   }
 }

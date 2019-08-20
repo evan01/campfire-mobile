@@ -1,4 +1,8 @@
 {
   "name": "campfire",
-  "displayName": "campfire"
+  "displayName": "campfire",
+  "splash": {
+    "image": "./src/assets/SplashLogo.svg",
+    "backgroundColor": "#264653"
+  }
 }

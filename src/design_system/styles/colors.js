@@ -6,4 +6,8 @@ export default {
     CF_NIGHT: "#264653",
     CF_MOON: "#0D3B66",
   },
+  ORANGE: {
+    CF_GOLD: "#EE964B",
+    CF_FIRE: "#F95738",
+  },
 };

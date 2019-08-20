@@ -8,9 +8,14 @@ exports[`TextInput renders correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#808080",
-      "borderBottomWidth": 1,
-      "height": 35,
+      "borderColor": "#000000",
+      "borderRadius": 25,
+      "fontFamily": "Roboto-Thin",
+      "fontSize": 22,
+      "height": 50,
+      "marginLeft": 15,
+      "padding": 14,
+      "paddingLeft": 20,
     }
   }
   underlineColorAndroid="transparent"
