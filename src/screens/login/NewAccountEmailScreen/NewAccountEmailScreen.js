@@ -1,6 +1,6 @@
 // @flow
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
+import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import colors from "../../../design_system/styles/colors";
@@ -21,18 +21,36 @@ const mapDispatchToProps = {
   updateAccountDetails: updateAccountDetails,
 };
 
-const NewAccountScreen = (props) => {
+const NewAccountEmailScreen = (props) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [verifiedPassword, setVerifiedPassword] = useState(null);
+  const [displayEmailError, setDisplayEmailError] = useState(false);
+  const [displayPasswordError, setDisplayPasswordError] = useState(false);
+
+  //From https://www.w3resource.com/javascript/form/email-validation.php
+  const isEmailValid = (email) => {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      return true;
+    }
+    return false;
+  };
 
   const toProfileSelectScreen = () => {
-    props.updateAccountDetails(email, null, "Profile1.png", password);
-    props.navigation.navigate("storybook");
+    if (isEmailValid(email) && verifiedPassword) {
+      props.updateAccountDetails(email, null, "Profile1.png", password);
+      props.navigation.navigate("newAccountUser");
+    } else {
+      setDisplayEmailError(true);
+    }
   };
 
   const renderPasswordMismatchText = () => {
-    return <Text style={styles.passwordMismatch}>Password did not match</Text>;
+    return <Text style={styles.errorText}>Password did not match</Text>;
+  };
+
+  const pleaseEnterValidEmailText = () => {
+    return <Text style={styles.errorText}>Please enter a valid email</Text>;
   };
 
   const renderLoginContainer = () => (
@@ -42,7 +60,12 @@ const NewAccountScreen = (props) => {
         placeholder={"email"}
         autoFocus={true}
         blurOnSubmit={true}
-        onChangeText={(txt) => setEmail(txt)}
+        onChangeText={(txt) => {
+          setEmail(txt);
+          if (isEmailValid(txt)) {
+            setDisplayEmailError(false);
+          }
+        }}
       />
       <DefaultTextInput
         secureTextEntry={true}
@@ -56,11 +79,17 @@ const NewAccountScreen = (props) => {
         placeholder={"verify password"}
         autoCompleteType={"password"}
         blurOnSubmit={true}
-        onChangeText={(txt) => setVerifiedPassword(txt)}
+        onChangeText={(txt) => {
+          if (password !== txt) {
+            setDisplayPasswordError(true);
+          } else {
+            setVerifiedPassword(true);
+            setDisplayPasswordError(false);
+          }
+        }}
       />
-      {verifiedPassword &&
-        verifiedPassword !== password &&
-        renderPasswordMismatchText()}
+      {displayPasswordError && renderPasswordMismatchText()}
+      {displayEmailError && pleaseEnterValidEmailText()}
     </View>
   );
 
@@ -118,7 +147,6 @@ const styles = StyleSheet.create({
     height: 250,
     width: "100%",
     alignItems: "center",
-    justifyContent: "space-between",
     top: "40%",
   },
   logo: {
@@ -127,16 +155,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     position: "absolute",
   },
-  passwordMismatch: {
+  errorText: {
     fontFamily: fonts.ROBOTO.LIGHT,
     fontSize: fonts.SIZE.FONT_SIZE_H2,
     color: colors.ORANGE.CF_FIRE,
   },
 });
 
-NewAccountScreen.propTypes = propTypes;
+NewAccountEmailScreen.propTypes = propTypes;
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NewAccountScreen);
+)(NewAccountEmailScreen);

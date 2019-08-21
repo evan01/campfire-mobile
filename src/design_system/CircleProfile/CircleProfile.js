@@ -10,7 +10,25 @@ import {
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 import PropTypes from "prop-types";
-import profileImage from "../../assets/images/profilePictures/Profile1.png";
+import profile1 from "../../assets/images/profilePictures/Profile1.png";
+import profile2 from "../../assets/images/profilePictures/Profile2.png";
+import profile3 from "../../assets/images/profilePictures/Profile3.png";
+import profile4 from "../../assets/images/profilePictures/Profile4.png";
+import profile5 from "../../assets/images/profilePictures/Profile5.png";
+import profile6 from "../../assets/images/profilePictures/Profile6.png";
+import profile7 from "../../assets/images/profilePictures/Profile7.png";
+import profile8 from "../../assets/images/profilePictures/Profile8.png";
+
+export const PROFILES = [
+  "profile1",
+  "profile2",
+  "profile3",
+  "profile4",
+  "profile5",
+  "profile6",
+  "profile7",
+  "profile8",
+];
 
 const propTypes = {
   name: PropTypes.string,
@@ -48,10 +66,36 @@ const CircleProfile = (props) => {
     </View>
   );
 
+  const getProfileImage = () => {
+    switch (props.name) {
+      case "profile1":
+        return profile1;
+      case "profile2":
+        return profile2;
+      case "profile3":
+        return profile3;
+      case "profile4":
+        return profile4;
+      case "profile5":
+        return profile5;
+      case "profile6":
+        return profile6;
+      case "profile7":
+        return profile7;
+      case "profile8":
+        return profile8;
+      default:
+        return profile1;
+    }
+  };
+
   return (
-    <View>
+    <View style={styles.margin}>
       <TouchableHighlight onPress={props.onPress}>
-        <Image style={getCircularContainerStyles()} source={profileImage} />
+        <Image
+          style={getCircularContainerStyles()}
+          source={getProfileImage()}
+        />
       </TouchableHighlight>
       {props.notifications && renderNotifications()}
     </View>
@@ -64,6 +108,9 @@ const styles = StyleSheet.create({
   notificationText: {
     color: colors.WHITE,
     fontFamily: fonts.ROBOTO.LIGHT,
+  },
+  margin: {
+    margin: 8,
   },
 });
 

@@ -8,6 +8,7 @@ import DefaultTextInput from "../../../design_system/TextInput/TextInput";
 import CircleButton from "../../../design_system/CircleButton/CircleButton";
 import CfLogo from "../../../design_system/CfLogo/CfLogo";
 import fonts from "../../../design_system/styles/fonts";
+import FlatButton from "../../../design_system/FlatButton/FlatButton";
 
 const propTypes = {
   navigation: PropTypes.object,
@@ -37,11 +38,11 @@ const MainLoginScreen = (props) => {
         autoCompleteType={"password"}
         blurOnSubmit={true}
       />
-      <Button
+      <FlatButton
         style={styles.newAccountButton}
-        color={colors.WHITE}
-        title={"Create a new Account"}
-        onPress={() => navigation.navigate("createAccount")}
+        backgroundColor={colors.ORANGE.CF_GOLD}
+        text={"Create a new Account"}
+        onPress={() => navigation.navigate("newAccountEmail")}
       />
     </View>
   );

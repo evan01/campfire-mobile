@@ -46,8 +46,8 @@ export const createNewAccount = (email, username, profilePicture, password) => {
   return (dispatch) => {
     //Api call here to create a new account in the server
     const accountDetails = {
-      userName: email,
-      email: username,
+      userName: username,
+      email: email,
       profilePicture: profilePicture,
       password: password,
     };
