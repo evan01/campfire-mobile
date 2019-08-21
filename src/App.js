@@ -1,10 +1,10 @@
 // @flow
 import React from "react";
-import { YellowBox, Platform, SafeAreaView } from "react-native";
+import { YellowBox, Platform, View } from "react-native";
 import Router from "./screens/Router";
-// import StoryBookUI from "./storybook/index";
 import { initStore } from "./redux/store";
 import { Provider } from "react-redux";
+import colors from "./design_system/styles/colors";
 
 YellowBox.ignoreWarnings(["Warning: ReactNative.createElement"]);
 const ignoreWarningsList = () => {
@@ -20,11 +20,11 @@ const App = () => {
   //Get Redux
   const store = initStore();
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+    <View style={{ flex: 1, backgroundColor: colors.BLUE.CF_NIGHT }}>
       <Provider store={store}>
         <Router />
       </Provider>
-    </SafeAreaView>
+    </View>
   );
 };
 

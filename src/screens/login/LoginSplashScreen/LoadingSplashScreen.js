@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { View, ActivityIndicator, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getAuthentication } from "../../../redux/reducers/auth/auth.actions";
+import { getInvalidAuthentication } from "../../../redux/reducers/auth/auth.actions";
 
 const propTypes = {
   navigation: PropTypes.object,
@@ -16,30 +16,23 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getUserLoginToken: getAuthentication,
+  getUserLoginToken: getInvalidAuthentication,
 };
 
 const LoginSplashScreen = (props) => {
   const { auth, getUserLoginToken, navigation } = props;
-  const [hasTokenForUser, setHasTokenForUser] = useState(false);
 
   useEffect(() => {
     getUserLoginToken();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    if (hasTokenForUser) {
-      if (auth.token) {
-        navigation.navigate("App");
-      } else {
-        navigation.navigate("Login");
-      }
+    if (auth.token) {
+      navigation.navigate("App");
     } else {
-      if (hasTokenForUser == false && auth.token) {
-        setHasTokenForUser(true);
-      }
+      navigation.navigate("Login");
     }
-  }, [auth, hasTokenForUser, navigation]);
+  }, [auth, navigation]);
 
   return (
     <View style={[styles.container, styles.horizontal]}>

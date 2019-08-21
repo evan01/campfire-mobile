@@ -38,6 +38,8 @@
 		8D42F890089A4C289756862F /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99934ECCE27D4E019C784A6D /* FontAwesome.ttf */; };
 		B3EF05DC2E039E5306319BEE /* libPods-campfire.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F47B6A06841257506408CC /* libPods-campfire.a */; };
 		BA1E92DB4CC4DD497250E098 /* libPods-campfire-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2A2AB096BF0E1A5EEDD6CE /* libPods-campfire-tvOS.a */; };
+		BE5375355D014D6DA43EB3DD /* LoginBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7581E9F697445CBB37AAB5 /* LoginBackground.png */; };
+		C2B3C0EB3CB1494DA762942B /* LoginBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55A1FCB305F9411D9CBAC1B3 /* LoginBackground@2x.png */; };
 		C46AE4FD1EAF493E8FA706E9 /* Roboto-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993ACDFD3DBF4F8B95E5F0F1 /* Roboto-RegularItalic.ttf */; };
 		CC4451424DC94554B564676C /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737CCC0D32554C3A90E836E2 /* MaterialCommunityIcons.ttf */; };
 		D0508E76A88F4737936080A5 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34F7FF814AD24A40A92C2A69 /* MaterialIcons.ttf */; };
@@ -98,7 +100,9 @@
 		3D884C3167384D5E84532A8A /* SplashLogo@2x.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SplashLogo@2x.png"; path = "../src/assets/images/splash/SplashLogo@2x.png"; sourceTree = "<group>"; };
 		4B5DA8545DDB1368DED3D364 /* Pods-campfire-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-campfire-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-campfire-tvOSTests/Pods-campfire-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		4FCAE934D299CFDB3FDDA605 /* libPods-campfire-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-campfire-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55A1FCB305F9411D9CBAC1B3 /* LoginBackground@2x.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LoginBackground@2x.png"; path = "../src/assets/images/loginBackground/LoginBackground@2x.png"; sourceTree = "<group>"; };
 		59DA2F3A689F45078693CC64 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../src/assets/fonts/Roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		5E7581E9F697445CBB37AAB5 /* LoginBackground.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = LoginBackground.png; path = ../src/assets/images/loginBackground/LoginBackground.png; sourceTree = "<group>"; };
 		697FAB3BA6424256B27E15F7 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../src/assets/fonts/Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		737CCC0D32554C3A90E836E2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		7D7BE9E561004B1786775B71 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 				3A2361D5CC2C4CAF85BE1A81 /* SplashLogo.png */,
 				BB0B4632C31440C8A75FDED8 /* SplashLogo.svg */,
 				3D884C3167384D5E84532A8A /* SplashLogo@2x.png */,
+				5E7581E9F697445CBB37AAB5 /* LoginBackground.png */,
+				55A1FCB305F9411D9CBAC1B3 /* LoginBackground@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -473,6 +479,8 @@
 				4BFC6407A1C54588A2AA819C /* SplashLogo.png in Resources */,
 				5EBB5FCA492B4B3EB81C65D5 /* SplashLogo.svg in Resources */,
 				EB73166CB3A0453E88BCEC13 /* SplashLogo@2x.png in Resources */,
+				BE5375355D014D6DA43EB3DD /* LoginBackground.png in Resources */,
+				C2B3C0EB3CB1494DA762942B /* LoginBackground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

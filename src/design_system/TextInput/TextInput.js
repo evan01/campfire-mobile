@@ -11,10 +11,11 @@ DefaultTextInput.displayName = "TextInput";
 const styles = StyleSheet.flatten({
   height: 50,
   backgroundColor: colors.WHITE,
-  borderColor: colors.BLACK,
+  borderColor: colors.BLUE.CF_NIGHT,
   borderRadius: 25,
+  width: "100%",
   marginLeft: 15,
-  fontFamily: fonts.ROBOTO.THIN,
+  fontFamily: fonts.ROBOTO.LIGHT,
   fontSize: fonts.SIZE.FONT_SIZE_H2,
   paddingLeft: 20,
   padding: 14,

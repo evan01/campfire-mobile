@@ -1,14 +1,16 @@
 // @flow
 import MainLoginScreen from "../screens/login/LoginScreen/LoginScreen";
-import { createStackNavigator } from "react-navigation";
+import { createSwitchNavigator } from "react-navigation";
+import NewAccountScreen from "../screens/login/NewAccountScreen/NewAccountScreen";
 
 const LoginRoutes = {
   default: MainLoginScreen,
-  email: MainLoginScreen,
+  signIn: MainLoginScreen,
+  createAccount: NewAccountScreen,
 };
 
 const LoginRouterOptions = {
   routes: LoginRoutes,
 };
 
-export default createStackNavigator(LoginRouterOptions.routes);
+export default createSwitchNavigator(LoginRouterOptions.routes);

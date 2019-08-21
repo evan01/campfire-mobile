@@ -1,8 +1,6 @@
 // @flow
 import React from "react";
 import { TouchableHighlight, View, StyleSheet } from "react-native";
-import colors from "../styles/colors";
-import fonts from "../styles/fonts";
 import PropTypes from "prop-types";
 import AppIcon from "../AppIcon/AppIcon";
 

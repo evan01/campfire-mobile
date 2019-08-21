@@ -84,8 +84,7 @@
   "rnpm": {
     "assets": [
       "./src/assets/fonts/",
-      "./src/assets/images/appIcon",
-      "./src/assets/images/splash"
+      "./src/assets/images/"
     ]
   }
 }
