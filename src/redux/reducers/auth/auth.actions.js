@@ -1,6 +1,6 @@
 // @flow
 import deviceStorage, {
-  USERNAME_KEY,
+  EMAIL_KEY,
   PASSWORD_KEY,
   AUTH_TOKEN_KEY,
 } from "../../../services/deviceStorage";
@@ -9,7 +9,7 @@ export const LOGIN_ACTION = "LOGIN";
 
 const getCredentialsFromStorage = async () => {
   const key = await deviceStorage.load(AUTH_TOKEN_KEY, (newKey) => newKey);
-  const username = await deviceStorage.load(USERNAME_KEY);
+  const username = await deviceStorage.load(EMAIL_KEY);
   const password = await deviceStorage.load(PASSWORD_KEY);
 
   return {
@@ -19,8 +19,8 @@ const getCredentialsFromStorage = async () => {
   };
 };
 
-const storeCredentialsInStorage = async (username, password) => {
-  await deviceStorage.store(USERNAME_KEY, username);
+const storeCredentialsInStorage = async (email, password) => {
+  await deviceStorage.store(EMAIL_KEY, email);
   await deviceStorage.store(PASSWORD_KEY, password);
   console.log("Stored credentials");
 };
@@ -50,7 +50,7 @@ export const logInWithPossibleCredentials = () => {
   };
 };
 
-export const loginWithEmail = (username, password) => {
+export const loginWithEmail = (email, password) => {
   return (dispatch) => {
     //store username and password in local storage
 
@@ -59,14 +59,14 @@ export const loginWithEmail = (username, password) => {
 
     //DO A MOCK SERVER CHECK
     if (
-      username &&
+      email &&
       password &&
-      username.toLowerCase() === "evan01" &&
+      email.toLowerCase() === "evan01" &&
       password.toLowerCase() === "password"
     ) {
       //Store the key IN API CALL
       // await deviceStorage.store(AUTH_TOKEN_KEY, apiKey);
-      storeCredentialsInStorage(username, password);
+      storeCredentialsInStorage(email, password);
       apiKey = "key123";
     } else {
       apiKey = "INVALID";

@@ -3,7 +3,6 @@ import { LOGIN_ACTION } from "./auth.actions";
 
 const defaultState = {
   token: null,
-  email: null,
 };
 
 const auth = (state = defaultState, action) => {

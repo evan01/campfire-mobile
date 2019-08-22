@@ -1,9 +1,16 @@
 // @flow
-import React, { useEffect } from "react";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import AppStack from "../routes/AppStack";
 import LoginStack from "../routes/LoginStack";
 import LoadingSplashScreen from "./login/LoginSplashScreen/LoadingSplashScreen";
+
+const getInitialRouteName = async () => {
+  //Eventually use some sort of persistent storage.
+  const initialRoute = "AuthLoading";
+  return {
+    initialRouteName: initialRoute,
+  };
+};
 
 const SwitchNavigator = createSwitchNavigator(
   {
@@ -11,8 +18,7 @@ const SwitchNavigator = createSwitchNavigator(
     App: AppStack,
     Login: LoginStack,
   },
-  {
-    initialRouteName: "AuthLoading",
-  }
+  getInitialRouteName()
 );
+
 export default createAppContainer(SwitchNavigator);

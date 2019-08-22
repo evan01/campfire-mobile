@@ -1,6 +1,7 @@
 // @flow
-import { AsyncStorage } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 export const USERNAME_KEY = "CAMPFIRE_USERNAME";
+export const EMAIL_KEY = "CAMPFIRE_USERNAME";
 export const PASSWORD_KEY = "CAMPFIRE_PASSWORD";
 export const AUTH_TOKEN_KEY = "CAMPFIRE_AUTH_KEY";
 
@@ -14,7 +15,8 @@ const deviceStorage = {
   },
   async load(key, callback = () => {}) {
     try {
-      return await AsyncStorage.getItem(key, callback);
+      const jsonString = await AsyncStorage.getItem(key, callback);
+      return JSON.parse(jsonString);
     } catch (e) {
       console.error("Async error", e);
     }

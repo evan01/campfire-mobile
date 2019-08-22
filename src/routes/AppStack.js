@@ -16,7 +16,7 @@ const defaultNavOptions = (navigation) => ({
 const routes = {
   home: HomeScreen,
   tab1: HomeScreen,
-  storybook: HomeScreen,
+  storybook: StorybookUIRoot,
 };
 
 const routeIcons = {

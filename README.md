@@ -9,3 +9,4 @@ To Do
 [ ] -> Mixpanel tracking
 [ ] -> Figure out what's happening with ASYNC storage
 [ ] -> 100% TEST COVERAGE. OK In dev but not when you release.
+[ ] -> PERSISTENT NAVIGATION, related to ASYNC storage

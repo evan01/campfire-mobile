@@ -20,11 +20,17 @@ const App = () => {
   //Get Redux
   const store = initStore();
   return (
-    <View style={{ flex: 1, backgroundColor: colors.BLUE.CF_NIGHT }}>
-      <Provider store={store}>
-        <Router />
-      </Provider>
-    </View>
+    <Provider store={store}>
+      <View style={{ flex: 1, backgroundColor: colors.BLUE.CF_NIGHT }}>
+        <Router
+          onNavigationStateChange={(prevState, newState, action) => {
+            // console.log(prevState, newState, action);
+          }}
+          // persistNavigationState={persistNavigationState}
+          // loadNavigationState={loadNavigationState}
+        />
+      </View>
+    </Provider>
   );
 };
 
