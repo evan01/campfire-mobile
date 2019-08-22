@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { createStackNavigator } from "react-navigation";
+import { createSwitchNavigator } from "react-navigation";
 import HomeScreen from "../screens/home/HomeScreen";
 import StorybookUIRoot from "../../storybook";
 import AppIcon from "../design_system/AppIcon/AppIcon";
@@ -14,7 +14,7 @@ const defaultNavOptions = (navigation) => ({
 });
 
 const routes = {
-  home: StorybookUIRoot,
+  home: HomeScreen,
   tab1: HomeScreen,
   storybook: HomeScreen,
 };
@@ -36,4 +36,4 @@ const AppStack = {
   },
 };
 
-export default createStackNavigator(AppStack.routes, AppStack.options);
+export default createSwitchNavigator(AppStack.routes, AppStack.options);

@@ -58,13 +58,18 @@ const CircleProfile = (props) => {
     borderWidth: 2,
   });
 
-  const renderNotifications = () => (
-    <View style={getNotificationsStyle()}>
-      <Text style={[styles.notificationText, { fontSize: props.size / 3 }]}>
-        {props.notifications}
-      </Text>
-    </View>
-  );
+  const renderNotifications = () => {
+    if (!props.notifications || props.notifications < 1) {
+      return null;
+    }
+    return (
+      <View style={getNotificationsStyle()}>
+        <Text style={[styles.notificationText, { fontSize: props.size / 3 }]}>
+          {props.notifications}
+        </Text>
+      </View>
+    );
+  };
 
   const getProfileImage = () => {
     switch (props.name) {
@@ -97,12 +102,10 @@ const CircleProfile = (props) => {
           source={getProfileImage()}
         />
       </TouchableHighlight>
-      {props.notifications && renderNotifications()}
+      {renderNotifications()}
     </View>
   );
 };
-
-CircleProfile.displayName = "TextInput";
 
 const styles = StyleSheet.create({
   notificationText: {

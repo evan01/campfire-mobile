@@ -54,8 +54,6 @@
 		FAF71723E14D409A91F65217 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F97CCA9048149838E87CC0D /* Roboto-Black.ttf */; };
 		5844D47257794A0B96D2F2D8 /* NewAccountBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 892D196BF54842B185B993F1 /* NewAccountBackground.jpg */; };
 		F5BC05D4279E428EB55951FE /* Profile1.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FA693A04CA421287FB5809 /* Profile1.png */; };
-		D9DE2AA193A243CF903CE423 /* Profile1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A4261F6B4746AEB5CC08FA /* Profile1@2x.png */; };
-		12198E49DABB4ED985ACD42D /* Profile1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACADE629C4F42EBA0F1E6E0 /* Profile1@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,8 +136,6 @@
 		FFA73C7C316A40F9820CD9E5 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		892D196BF54842B185B993F1 /* NewAccountBackground.jpg */ = {isa = PBXFileReference; name = "NewAccountBackground.jpg"; path = "../src/assets/images/newAccountBackground/NewAccountBackground.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		F2FA693A04CA421287FB5809 /* Profile1.png */ = {isa = PBXFileReference; name = "Profile1.png"; path = "../src/assets/images/profilePictures/Profile1.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		54A4261F6B4746AEB5CC08FA /* Profile1@2x.png */ = {isa = PBXFileReference; name = "Profile1@2x.png"; path = "../src/assets/images/profilePictures/Profile1@2x.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		1ACADE629C4F42EBA0F1E6E0 /* Profile1@3x.png */ = {isa = PBXFileReference; name = "Profile1@3x.png"; path = "../src/assets/images/profilePictures/Profile1@3x.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,8 +229,6 @@
 				55A1FCB305F9411D9CBAC1B3 /* LoginBackground@2x.png */,
 				892D196BF54842B185B993F1 /* NewAccountBackground.jpg */,
 				F2FA693A04CA421287FB5809 /* Profile1.png */,
-				54A4261F6B4746AEB5CC08FA /* Profile1@2x.png */,
-				1ACADE629C4F42EBA0F1E6E0 /* Profile1@3x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

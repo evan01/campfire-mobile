@@ -27,7 +27,7 @@ const CircleButton = (props) => {
         onPress={props.onPress}>
         <AppIcon
           name={props.icon}
-          size={props.size / 2}
+          size={props.size / 1.5}
           color={props.iconColor}
         />
       </TouchableHighlight>

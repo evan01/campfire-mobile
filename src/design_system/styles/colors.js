@@ -9,5 +9,12 @@ export default {
   ORANGE: {
     CF_GOLD: "#EE964B",
     CF_FIRE: "#F95738",
+    CF_SUN: "#E9C46A",
+  },
+  RED: {
+    CF_FIRETRUCK: "#F95738",
+  },
+  GREEN: {
+    CF_GOLF: "#8BC34A",
   },
 };

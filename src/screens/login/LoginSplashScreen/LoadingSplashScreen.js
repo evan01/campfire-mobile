@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { View, ActivityIndicator, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getInvalidAuthentication } from "../../../redux/reducers/auth/auth.actions";
+import { logInWithPossibleCredentials } from "../../../redux/reducers/auth/auth.actions";
 
 const propTypes = {
   navigation: PropTypes.object,
@@ -16,14 +16,14 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getUserLoginToken: getInvalidAuthentication,
+  login: logInWithPossibleCredentials,
 };
 
 const LoginSplashScreen = (props) => {
-  const { auth, getUserLoginToken, navigation } = props;
+  const { auth, login, navigation } = props;
 
   useEffect(() => {
-    getUserLoginToken();
+    login();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {

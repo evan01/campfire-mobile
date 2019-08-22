@@ -11,5 +11,7 @@ export default {
     NAME: "Roboto",
     THIN: "Roboto-Thin",
     LIGHT: "Roboto-Light",
+    BOLD: "Roboto-Bold",
+    MEDIUM: "Roboto-Medium",
   },
 };

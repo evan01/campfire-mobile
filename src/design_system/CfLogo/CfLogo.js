@@ -5,7 +5,7 @@ import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
 const CfLogo = (props) => (
-  <View style={styles.logoContainer}>
+  <View>
     <Text>
       <Text style={styles.camp}>Camp</Text>
       <Text style={styles.fire}>Fire</Text>
@@ -16,9 +16,6 @@ const CfLogo = (props) => (
 CfLogo.displayName = "TextInput";
 
 const styles = StyleSheet.create({
-  logoContainer: {
-    height: 50,
-  },
   camp: {
     fontFamily: fonts.ROBOTO.LIGHT,
     fontSize: fonts.SIZE.LOGO,

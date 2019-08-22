@@ -29,8 +29,8 @@ export const updateAccountDetails = (
   return (dispatch) => {
     //Api call here to store these in the server
     const accountDetails = {
-      userName: email,
-      email: username,
+      email: email,
+      username: username,
       profilePicture: profilePicture,
       password: password,
     };
@@ -46,8 +46,8 @@ export const createNewAccount = (email, username, profilePicture, password) => {
   return (dispatch) => {
     //Api call here to create a new account in the server
     const accountDetails = {
-      userName: username,
       email: email,
+      userName: username,
       profilePicture: profilePicture,
       password: password,
     };
