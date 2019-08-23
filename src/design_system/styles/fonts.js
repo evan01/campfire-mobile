@@ -5,6 +5,7 @@ export default {
     FONT_SIZE_H3: 18,
     FONT_SIZE_H2: 22,
     FONT_SIZE_H1: 24,
+    TITLE: 30,
     LOGO: 38,
   },
   ROBOTO: {

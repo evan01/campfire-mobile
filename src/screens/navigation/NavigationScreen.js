@@ -8,6 +8,8 @@ import ArrowCircle from "../../assets/images/ArrowCircle/ArrowCircle.png";
 import colors from "../../design_system/styles/colors";
 import fonts from "../../design_system/styles/fonts";
 import { useDropDown } from "../../design_system/Animations/DropDown";
+import AppHeader from "../../design_system/AppHeader/AppHeader";
+import { SafeAreaView } from "react-navigation";
 
 const propTypes = {
   navigation: PropTypes.object,
@@ -60,14 +62,23 @@ const NavigationScreen = (props) => {
   };
 
   const renderAppHeader = () => {
-    return null;
+    return (
+      <View>
+        <AppHeader
+          profileImage={"profile1"}
+          onProfilePress={() => {}}
+          numNotifications={4}
+          navigation={navigation}
+        />
+      </View>
+    );
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {renderAppHeader()}
       {renderCircleIcon()}
-    </View>
+    </SafeAreaView>
   );
 };
 

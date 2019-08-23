@@ -52,6 +52,7 @@ const HomeScreen = (props) => {
       profileImage={profilePicture}
       onProfilePress={() => console.log("nav to settings page")}
       numNotifications={numLocationRequests}
+      navigation={navigation}
     />
   );
 
@@ -94,6 +95,10 @@ const HomeScreen = (props) => {
       <Button
         onPress={() => navigation.navigate("navigation")}
         title={"navigation"}
+      />
+      <Button
+        onPress={() => navigation.navigate("friends")}
+        title={"friends"}
       />
     </SafeAreaView>
   );

@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { View, StyleSheet, Animated } from "react-native";
+import { View, StyleSheet, Animated, TouchableOpacity } from "react-native";
 import PropTypes from "prop-types";
 import CircleProfile from "../CircleProfile/CircleProfile";
 import colors from "../styles/colors";
@@ -11,9 +11,15 @@ const propTypes = {
   profileImage: PropTypes.string,
   onProfilePress: PropTypes.func,
   numNotifications: PropTypes.number,
+  navigation: PropTypes.object,
 };
 
-const AppHeader = ({ profileImage, onProfilePress, numNotifications }) => {
+const AppHeader = ({
+  profileImage,
+  onProfilePress,
+  numNotifications,
+  navigation,
+}) => {
   return (
     <View>
       <CircleProfile
@@ -23,9 +29,11 @@ const AppHeader = ({ profileImage, onProfilePress, numNotifications }) => {
         notifications={numNotifications}
         onPress={onProfilePress}
       />
-      <View style={styles.logo}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("home")}
+        style={styles.logo}>
         <CfLogo />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };

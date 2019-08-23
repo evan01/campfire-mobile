@@ -8,6 +8,7 @@ import NewAccountEmailScreen from "../screens/login/NewAccountEmailScreen/NewAcc
 import NewAccountUsernameScreen from "../screens/login/NewAccountUsernameScreen/NewAccountUsernameScreen";
 import LoadingSplashScreen from "../screens/login/LoginSplashScreen/LoadingSplashScreen";
 import NavigationScreen from "../screens/navigation/NavigationScreen";
+import FriendsScreen from "./friends/FriendsScreen";
 
 const LoginRoutes = {
   default: LoginScreen,
@@ -16,6 +17,7 @@ const LoginRoutes = {
   newAccountUser: NewAccountUsernameScreen,
   authLoading: LoadingSplashScreen,
   navigation: NavigationScreen,
+  friends: FriendsScreen,
 };
 
 const AppRoutes = {

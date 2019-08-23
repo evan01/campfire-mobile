@@ -4,12 +4,10 @@ import {
   Image,
   View,
   StyleSheet,
-  Text,
   TouchableHighlight,
   Animated,
 } from "react-native";
 import colors from "../styles/colors";
-import { usePulse } from "../Animations/Pulse";
 import fonts from "../styles/fonts";
 import PropTypes from "prop-types";
 import profile1 from "../../assets/images/profilePictures/Profile1.png";
@@ -41,8 +39,6 @@ const propTypes = {
 };
 
 const CircleProfile = (props) => {
-  const pulse_fontSize = usePulse(props.size / 3, props.size / 2, 3000);
-
   const getNotificationsStyle = () => ({
     borderRadius: props.size / 3,
     width: props.size / 1.5,
@@ -69,8 +65,7 @@ const CircleProfile = (props) => {
     }
     return (
       <View style={getNotificationsStyle()}>
-        <Animated.Text
-          style={[styles.notificationText, { fontSize: pulse_fontSize }]}>
+        <Animated.Text style={[styles.notificationText]}>
           {props.notifications}
         </Animated.Text>
       </View>
