@@ -1,6 +1,6 @@
 // @flow
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
+import { View, Text, StyleSheet, Animated } from "react-native";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import { connect } from "react-redux";
@@ -13,6 +13,8 @@ import CircleProfile, {
 import CfLogo from "../../../design_system/CfLogo/CfLogo";
 import fonts from "../../../design_system/styles/fonts";
 import { createNewAccount } from "../../../redux/reducers/account/account.actions";
+import { useDropDown } from "../../../design_system/Animations/DropDown";
+import { useOpacity } from "../../../design_system/Animations/Opacity";
 
 const propTypes = {
   navigation: PropTypes.object,
@@ -31,12 +33,14 @@ const NewAccountScreen = (props) => {
   const [userName, setUserName] = useState(null);
   const [invalidUsername, setInvalidUsername] = useState(false);
   const [profilePicture, setProfilePicture] = useState("profile1");
+  const iconSelectDrop = useDropDown(50, 1000);
+  const profileOpacity = useOpacity(0, 1, 1000);
 
   const toHomeScreen = () => {
     if (userName) {
       const { email, password } = props.account;
       props.createNewAccount(email, userName, profilePicture, password);
-      props.navigation.navigate("storybook");
+      props.navigation.navigate("home");
     } else {
       setInvalidUsername(true);
     }
@@ -78,14 +82,15 @@ const NewAccountScreen = (props) => {
 
   const renderSelectedProfilePicture = () => {
     return (
-      <View style={styles.selectedProfileContainer}>
+      <Animated.View
+        style={[styles.selectedProfileContainer, { opacity: profileOpacity }]}>
         <CircleProfile
           name={profilePicture}
           size={140}
           borderColor={colors.WHITE}
         />
         <Text style={styles.profilePicture}>Profile Picture</Text>
-      </View>
+      </Animated.View>
     );
   };
 
@@ -99,7 +104,11 @@ const NewAccountScreen = (props) => {
         borderColor={colors.WHITE}
       />
     ));
-    return <View style={styles.pictureChoices}>{profilesComponents}</View>;
+    return (
+      <Animated.View style={[styles.pictureChoices, { top: iconSelectDrop }]}>
+        {profilesComponents}
+      </Animated.View>
+    );
   };
 
   return (

@@ -54,6 +54,14 @@
 		FAF71723E14D409A91F65217 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F97CCA9048149838E87CC0D /* Roboto-Black.ttf */; };
 		5844D47257794A0B96D2F2D8 /* NewAccountBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 892D196BF54842B185B993F1 /* NewAccountBackground.jpg */; };
 		F5BC05D4279E428EB55951FE /* Profile1.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FA693A04CA421287FB5809 /* Profile1.png */; };
+		09048536A9CE44669F25CBB8 /* ArrowCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C8BA3244474414B42B8D4E /* ArrowCircle.png */; };
+		3A2F478DEBC541DEB1C15B3B /* Profile2.png in Resources */ = {isa = PBXBuildFile; fileRef = 93034F0B6BE24AC78A08A0AE /* Profile2.png */; };
+		2ADEC354801F4E7A9D806CA2 /* Profile3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C199F396E8A4656AF7B2FA2 /* Profile3.png */; };
+		CEC3A8E037EF4A27959C3A71 /* Profile4.png in Resources */ = {isa = PBXBuildFile; fileRef = C5751B8FAE2044CFA4991258 /* Profile4.png */; };
+		78D4E91865EB417AB69537BB /* Profile5.png in Resources */ = {isa = PBXBuildFile; fileRef = 68AB697B54BC466FA8DD38CA /* Profile5.png */; };
+		856A13CF838A422DB30BCEC0 /* Profile6.png in Resources */ = {isa = PBXBuildFile; fileRef = DB10AC165EC446F899D9C7AD /* Profile6.png */; };
+		5D95204F315B4AB1BBB7434B /* Profile7.png in Resources */ = {isa = PBXBuildFile; fileRef = 3699810811D445D1848A5364 /* Profile7.png */; };
+		47AABC19ACCD4077B65B37D0 /* Profile8.png in Resources */ = {isa = PBXBuildFile; fileRef = ABFDE33151F04F4B961B0FF6 /* Profile8.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +144,14 @@
 		FFA73C7C316A40F9820CD9E5 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		892D196BF54842B185B993F1 /* NewAccountBackground.jpg */ = {isa = PBXFileReference; name = "NewAccountBackground.jpg"; path = "../src/assets/images/newAccountBackground/NewAccountBackground.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		F2FA693A04CA421287FB5809 /* Profile1.png */ = {isa = PBXFileReference; name = "Profile1.png"; path = "../src/assets/images/profilePictures/Profile1.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		14C8BA3244474414B42B8D4E /* ArrowCircle.png */ = {isa = PBXFileReference; name = "ArrowCircle.png"; path = "../src/assets/images/ArrowCircle/ArrowCircle.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		93034F0B6BE24AC78A08A0AE /* Profile2.png */ = {isa = PBXFileReference; name = "Profile2.png"; path = "../src/assets/images/profilePictures/Profile2.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5C199F396E8A4656AF7B2FA2 /* Profile3.png */ = {isa = PBXFileReference; name = "Profile3.png"; path = "../src/assets/images/profilePictures/Profile3.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C5751B8FAE2044CFA4991258 /* Profile4.png */ = {isa = PBXFileReference; name = "Profile4.png"; path = "../src/assets/images/profilePictures/Profile4.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		68AB697B54BC466FA8DD38CA /* Profile5.png */ = {isa = PBXFileReference; name = "Profile5.png"; path = "../src/assets/images/profilePictures/Profile5.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DB10AC165EC446F899D9C7AD /* Profile6.png */ = {isa = PBXFileReference; name = "Profile6.png"; path = "../src/assets/images/profilePictures/Profile6.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3699810811D445D1848A5364 /* Profile7.png */ = {isa = PBXFileReference; name = "Profile7.png"; path = "../src/assets/images/profilePictures/Profile7.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		ABFDE33151F04F4B961B0FF6 /* Profile8.png */ = {isa = PBXFileReference; name = "Profile8.png"; path = "../src/assets/images/profilePictures/Profile8.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +245,14 @@
 				55A1FCB305F9411D9CBAC1B3 /* LoginBackground@2x.png */,
 				892D196BF54842B185B993F1 /* NewAccountBackground.jpg */,
 				F2FA693A04CA421287FB5809 /* Profile1.png */,
+				14C8BA3244474414B42B8D4E /* ArrowCircle.png */,
+				93034F0B6BE24AC78A08A0AE /* Profile2.png */,
+				5C199F396E8A4656AF7B2FA2 /* Profile3.png */,
+				C5751B8FAE2044CFA4991258 /* Profile4.png */,
+				68AB697B54BC466FA8DD38CA /* Profile5.png */,
+				DB10AC165EC446F899D9C7AD /* Profile6.png */,
+				3699810811D445D1848A5364 /* Profile7.png */,
+				ABFDE33151F04F4B961B0FF6 /* Profile8.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -490,6 +514,14 @@
 				F5BC05D4279E428EB55951FE /* Profile1.png in Resources */,
 				D9DE2AA193A243CF903CE423 /* Profile1@2x.png in Resources */,
 				12198E49DABB4ED985ACD42D /* Profile1@3x.png in Resources */,
+				09048536A9CE44669F25CBB8 /* ArrowCircle.png in Resources */,
+				3A2F478DEBC541DEB1C15B3B /* Profile2.png in Resources */,
+				2ADEC354801F4E7A9D806CA2 /* Profile3.png in Resources */,
+				CEC3A8E037EF4A27959C3A71 /* Profile4.png in Resources */,
+				78D4E91865EB417AB69537BB /* Profile5.png in Resources */,
+				856A13CF838A422DB30BCEC0 /* Profile6.png in Resources */,
+				5D95204F315B4AB1BBB7434B /* Profile7.png in Resources */,
+				47AABC19ACCD4077B65B37D0 /* Profile8.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

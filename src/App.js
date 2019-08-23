@@ -5,6 +5,7 @@ import Router from "./screens/Router";
 import { initStore } from "./redux/store";
 import { Provider } from "react-redux";
 import colors from "./design_system/styles/colors";
+// import deviceStorage, { NAVIGATION_STATE_KEY } from "./services/deviceStorage";
 
 YellowBox.ignoreWarnings(["Warning: ReactNative.createElement"]);
 const ignoreWarningsList = () => {
@@ -14,6 +15,19 @@ const ignoreWarningsList = () => {
     "componentWillMount is deprecated and will be removed in the next major version.",
   ]);
 };
+
+// const persistNavigationState = async (navState) => {
+//   try {
+//     deviceStorage.store(NAVIGATION_STATE_KEY, navState);
+//   } catch (err) {
+//     // handle the error according to your needs
+//   }
+// };
+// const loadNavigationState = async () => {
+//   deviceStorage.getItem(NAVIGATION_STATE_KEY).then((key) => {
+//     console.log(key);
+//   });
+// };
 
 const App = () => {
   ignoreWarningsList();

@@ -4,6 +4,7 @@ export const USERNAME_KEY = "CAMPFIRE_USERNAME";
 export const EMAIL_KEY = "CAMPFIRE_USERNAME";
 export const PASSWORD_KEY = "CAMPFIRE_PASSWORD";
 export const AUTH_TOKEN_KEY = "CAMPFIRE_AUTH_KEY";
+export const NAVIGATION_STATE_KEY = "CAMPFIRE_NAVIGATION_STATE";
 
 const deviceStorage = {
   async store(key, value) {

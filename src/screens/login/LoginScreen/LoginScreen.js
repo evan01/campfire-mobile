@@ -6,7 +6,6 @@ import {
   ImageBackground,
   Text,
   Animated,
-  Easing,
 } from "react-native";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -33,11 +32,11 @@ const mapDispatchToProps = {
   loginWithEmail: loginWithEmail,
 };
 
-const MainLoginScreen = (props) => {
+const LoginScreen = (props) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [displaySignInError, setDisplaySignInError] = useState(false);
-  const drop = useDropDown(40, 1000);
+  const drop = useDropDown(40, 1300);
 
   useEffect(() => {
     if (props.auth.token) {
@@ -58,7 +57,7 @@ const MainLoginScreen = (props) => {
       <View style={styles.loginContainer}>
         <DefaultTextInput
           autoCompleteType={"email"}
-          placeholder={"email"}
+          placeholder={"email or username"}
           autoFocus={true}
           blurOnSubmit={true}
           onChangeText={(txt) => {
@@ -151,9 +150,9 @@ const styles = StyleSheet.create({
   },
 });
 
-MainLoginScreen.propTypes = propTypes;
+LoginScreen.propTypes = propTypes;
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MainLoginScreen);
+)(LoginScreen);

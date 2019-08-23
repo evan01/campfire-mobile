@@ -61,8 +61,8 @@ export const loginWithEmail = (email, password) => {
     if (
       email &&
       password &&
-      email.toLowerCase() === "evan01" &&
-      password.toLowerCase() === "password"
+      email.toLowerCase() === "e" &&
+      password.toLowerCase() === "p"
     ) {
       //Store the key IN API CALL
       // await deviceStorage.store(AUTH_TOKEN_KEY, apiKey);

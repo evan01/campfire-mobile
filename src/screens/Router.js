@@ -1,24 +1,36 @@
 // @flow
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
-import AppStack from "../routes/AppStack";
-import LoginStack from "../routes/LoginStack";
-import LoadingSplashScreen from "./login/LoginSplashScreen/LoadingSplashScreen";
 
-const getInitialRouteName = async () => {
-  //Eventually use some sort of persistent storage.
-  const initialRoute = "AuthLoading";
-  return {
-    initialRouteName: initialRoute,
-  };
+import HomeScreen from "../screens/home/HomeScreen";
+import StorybookUIRoot from "../../storybook";
+import LoginScreen from "../screens/login/LoginScreen/LoginScreen";
+import NewAccountEmailScreen from "../screens/login/NewAccountEmailScreen/NewAccountEmailScreen";
+import NewAccountUsernameScreen from "../screens/login/NewAccountUsernameScreen/NewAccountUsernameScreen";
+import LoadingSplashScreen from "../screens/login/LoginSplashScreen/LoadingSplashScreen";
+import NavigationScreen from "../screens/navigation/NavigationScreen";
+
+const LoginRoutes = {
+  default: LoginScreen,
+  signIn: LoginScreen,
+  newAccountEmail: NewAccountEmailScreen,
+  newAccountUser: NewAccountUsernameScreen,
+  authLoading: LoadingSplashScreen,
+  navigation: NavigationScreen,
+};
+
+const AppRoutes = {
+  home: HomeScreen,
+  storybook: StorybookUIRoot,
 };
 
 const SwitchNavigator = createSwitchNavigator(
   {
-    AuthLoading: LoadingSplashScreen,
-    App: AppStack,
-    Login: LoginStack,
+    ...LoginRoutes,
+    ...AppRoutes,
   },
-  getInitialRouteName()
+  {
+    initialRouteName: "authLoading",
+  }
 );
 
 export default createAppContainer(SwitchNavigator);

@@ -1,6 +1,13 @@
 // @flow
 import React, { useState } from "react";
-import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  Animated,
+  TouchableHighlight,
+} from "react-native";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import colors from "../../../design_system/styles/colors";
@@ -9,6 +16,8 @@ import CircleButton from "../../../design_system/CircleButton/CircleButton";
 import CfLogo from "../../../design_system/CfLogo/CfLogo";
 import fonts from "../../../design_system/styles/fonts";
 import { updateAccountDetails } from "../../../redux/reducers/account/account.actions";
+import { useDropDown } from "../../../design_system/Animations/DropDown";
+import AppIcon from "../../../design_system/AppIcon/AppIcon";
 
 const propTypes = {
   navigation: PropTypes.object,
@@ -27,6 +36,7 @@ const NewAccountEmailScreen = (props) => {
   const [verifiedPassword, setVerifiedPassword] = useState(null);
   const [displayEmailError, setDisplayEmailError] = useState(false);
   const [displayPasswordError, setDisplayPasswordError] = useState(false);
+  const dropDown = useDropDown(100, 700);
 
   //From https://www.w3resource.com/javascript/form/email-validation.php
   const isEmailValid = (email) => {
@@ -54,7 +64,7 @@ const NewAccountEmailScreen = (props) => {
   };
 
   const renderLoginContainer = () => (
-    <View style={styles.loginContainer}>
+    <Animated.View style={[styles.loginContainer, { top: dropDown }]}>
       <DefaultTextInput
         autoCompleteType={"email"}
         placeholder={"email"}
@@ -90,7 +100,7 @@ const NewAccountEmailScreen = (props) => {
       />
       {displayPasswordError && renderPasswordMismatchText()}
       {displayEmailError && pleaseEnterValidEmailText()}
-    </View>
+    </Animated.View>
   );
 
   const renderLoginButton = () => (
@@ -110,12 +120,23 @@ const NewAccountEmailScreen = (props) => {
     </View>
   );
 
+  const renderBackButton = () => {
+    return (
+      <TouchableHighlight
+        style={styles.cancelButton}
+        onPress={() => props.navigation.navigate("login")}>
+        <AppIcon name={"close"} size={30} color={colors.WHITE} />
+      </TouchableHighlight>
+    );
+  };
+
   return (
     <View style={styles.background}>
       <ImageBackground
         style={styles.image}
         imageStyle={styles.imageStyle}
         source={require("./NewAccountBackground.jpg")}>
+        {renderBackButton()}
         {renderLoginContainer()}
         {renderLogo()}
       </ImageBackground>
@@ -134,6 +155,10 @@ const styles = StyleSheet.create({
     width: "100%",
     alignSelf: "center",
   },
+  cancelButton: {
+    marginHorizontal: 10,
+    marginTop: 25,
+  },
   image: {
     width: "100%",
     height: "100%",
@@ -147,7 +172,6 @@ const styles = StyleSheet.create({
     height: 250,
     width: "100%",
     alignItems: "center",
-    top: "40%",
   },
   logo: {
     bottom: 20,

@@ -1,15 +1,20 @@
 // @flow
 import React, { useEffect, useState } from "react";
-import { Text, Button, StyleSheet, View } from "react-native";
+import { Text, Button, StyleSheet, View, Animated } from "react-native";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import { connect } from "react-redux";
 import { SafeAreaView } from "react-navigation";
-import { getLocationRequests } from "../../redux/reducers/locations/locations.actions";
+import {
+  getLocationRequests,
+  acceptLocationRequest,
+  rejectLocationRequest,
+} from "../../redux/reducers/locations/locations.actions";
 import AppHeader from "../../design_system/AppHeader/AppHeader";
 import fonts from "../../design_system/styles/fonts";
 import colors from "../../design_system/styles/colors";
 import LocationRequest from "./components/LocationRequest";
+import { useDropDown } from "../../design_system/Animations/DropDown";
 
 const propTypes = {
   navigation: PropTypes.object,
@@ -17,6 +22,8 @@ const propTypes = {
   locationRequests: PropTypes.array,
   account: PropTypes.object,
   getLocationRequests: PropTypes.func,
+  acceptLocationRequest: PropTypes.func,
+  rejectLocationRequest: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -27,11 +34,14 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   getLocationRequests: getLocationRequests,
+  acceptLocationRequest: acceptLocationRequest,
+  rejectLocationRequest: rejectLocationRequest,
 };
 
 const HomeScreen = (props) => {
   const { navigation, numLocationRequests, locationRequests } = props;
   const { userName, email, profilePicture, password } = props.account;
+  const locationRequestDrop = useDropDown(50, 750);
 
   useEffect(() => {
     props.getLocationRequests();
@@ -46,23 +56,18 @@ const HomeScreen = (props) => {
   );
 
   const renderLocationRequests = () => {
-    const onConfirm = (userId) => {
-      console.log(userId);
-    };
-    const onCancel = (userId) => {
-      console.log(userId);
-    };
-
     const requests = _.map(locationRequests, (user) => {
       return (
-        <View key={user.name}>
+        <Animated.View
+          style={[styles.locationRequests, { height: locationRequestDrop }]}
+          key={user.name}>
           <LocationRequest
             user={user.name}
             userId={user.userId}
-            onConfirm={onConfirm}
-            onCancel={onCancel}
+            onConfirm={props.acceptLocationRequest}
+            onCancel={props.rejectLocationRequest}
           />
-        </View>
+        </Animated.View>
       );
     });
 
@@ -79,8 +84,16 @@ const HomeScreen = (props) => {
       {renderHeader()}
       {renderLocationRequests()}
       <Button
-        onPress={() => navigation.navigate("Login")}
+        onPress={() => navigation.navigate("signIn")}
         title={"go to login screen"}
+      />
+      <Button
+        onPress={() => navigation.navigate("storybook")}
+        title={"Storybook"}
+      />
+      <Button
+        onPress={() => navigation.navigate("navigation")}
+        title={"navigation"}
       />
     </SafeAreaView>
   );
@@ -90,7 +103,7 @@ const styles = StyleSheet.create({
   background: {
     height: "100%",
   },
-  requests: {
+  locationRequests: {
     marginLeft: 40,
   },
   header: {

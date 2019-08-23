@@ -28,9 +28,9 @@ const LoginSplashScreen = (props) => {
 
   useEffect(() => {
     if (auth.token) {
-      navigation.navigate("App");
+      navigation.navigate("home");
     } else {
-      navigation.navigate("Login");
+      navigation.navigate("signIn");
     }
   }, [auth, navigation]);
 
