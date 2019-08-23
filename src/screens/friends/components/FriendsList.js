@@ -12,10 +12,12 @@ import _ from "lodash";
 import CircleProfile from "../../../design_system/CircleProfile/CircleProfile";
 import colors from "../../../design_system/styles/colors";
 import fonts from "../../../design_system/styles/fonts";
+import { useOpacity } from "../../../design_system/Animations/Opacity";
 
 const FriendsList = (props) => {
   const { friends } = props;
   const friendIds = _.keys(friends);
+  const opacity = useOpacity();
 
   const friendList = _.map(friendIds, (friendId) => {
     const renderNameUserName = (name, userName) => (
@@ -27,17 +29,18 @@ const FriendsList = (props) => {
 
     const friend = friends[friendId];
     return (
-      <TouchableOpacity
-        style={styles.friendItem}
-        key={friendId}
-        onPress={() => console.log(friend)}>
-        <CircleProfile
-          name={friend.profilePicture}
-          size={60}
-          borderColor={colors.WHITE}
-        />
-        {renderNameUserName(friend.name, friend.userName)}
-      </TouchableOpacity>
+      <Animated.View key={friendId} style={{ opacity: opacity }}>
+        <TouchableOpacity
+          style={styles.friendItem}
+          onPress={() => console.log(friend)}>
+          <CircleProfile
+            name={friend.profilePicture}
+            size={60}
+            borderColor={colors.WHITE}
+          />
+          {renderNameUserName(friend.name, friend.userName)}
+        </TouchableOpacity>
+      </Animated.View>
     );
   });
   return (
