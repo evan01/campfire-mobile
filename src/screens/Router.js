@@ -9,6 +9,7 @@ import NewAccountUsernameScreen from "../screens/login/NewAccountUsernameScreen/
 import LoadingSplashScreen from "../screens/login/LoginSplashScreen/LoadingSplashScreen";
 import NavigationScreen from "../screens/navigation/NavigationScreen";
 import FriendsScreen from "./friends/FriendsScreen";
+import ProfileScreen from "./profile/ProfileScreen";
 
 const LoginRoutes = {
   default: LoginScreen,
@@ -18,6 +19,7 @@ const LoginRoutes = {
   authLoading: LoadingSplashScreen,
   navigation: NavigationScreen,
   friends: FriendsScreen,
+  profile: ProfileScreen,
 };
 
 const AppRoutes = {

@@ -50,7 +50,6 @@ const HomeScreen = (props) => {
   const renderHeader = () => (
     <AppHeader
       profileImage={profilePicture}
-      onProfilePress={() => console.log("nav to settings page")}
       numNotifications={numLocationRequests}
       navigation={navigation}
     />

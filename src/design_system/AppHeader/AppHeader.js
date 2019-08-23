@@ -5,47 +5,50 @@ import PropTypes from "prop-types";
 import CircleProfile from "../CircleProfile/CircleProfile";
 import colors from "../styles/colors";
 import CfLogo from "../CfLogo/CfLogo";
-import { usePulse } from "../../design_system/Animations/Pulse";
 
 const propTypes = {
   profileImage: PropTypes.string,
-  onProfilePress: PropTypes.func,
   numNotifications: PropTypes.number,
   navigation: PropTypes.object,
 };
 
-const AppHeader = ({
-  profileImage,
-  onProfilePress,
-  numNotifications,
-  navigation,
-}) => {
+const AppHeader = ({ profileImage, numNotifications, navigation }) => {
   return (
-    <View>
-      <CircleProfile
-        name={profileImage}
-        size={40}
-        borderColor={colors.WHITE}
-        notifications={numNotifications}
-        onPress={onProfilePress}
-      />
-      <TouchableOpacity
-        onPress={() => navigation.navigate("home")}
-        style={styles.logo}>
-        <CfLogo />
-      </TouchableOpacity>
+    <View style={styles.container}>
+      <View style={styles.profileContainer}>
+        <CircleProfile
+          name={profileImage}
+          size={40}
+          borderColor={colors.WHITE}
+          notifications={numNotifications}
+          onPress={() => navigation.navigate("profile")}
+        />
+      </View>
+      <View style={styles.logoContainer}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("home")}
+          style={styles.logo}>
+          <CfLogo />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  logo: {
+  container: {
+    // height: 80,
     width: "100%",
+  },
+  profileContainer: {},
+  logoContainer: {
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    position: "absolute",
-    top: 0,
+    zIndex: 50,
+    top: -80,
   },
+  logo: {},
 });
 
 AppHeader.propTypes = propTypes;

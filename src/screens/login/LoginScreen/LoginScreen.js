@@ -36,7 +36,7 @@ const LoginScreen = (props) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [displaySignInError, setDisplaySignInError] = useState(false);
-  const drop = useDropDown(40, 1300);
+  const drop = useDropDown(30, 1000);
 
   useEffect(() => {
     if (props.auth.token) {

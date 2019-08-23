@@ -4,7 +4,7 @@ import {
   Image,
   View,
   StyleSheet,
-  TouchableHighlight,
+  TouchableOpacity,
   Animated,
 } from "react-native";
 import colors from "../styles/colors";
@@ -96,13 +96,13 @@ const CircleProfile = (props) => {
   };
 
   return (
-    <View style={styles.margin}>
-      <TouchableHighlight onPress={props.onPress}>
+    <View style={styles.container}>
+      <TouchableOpacity onPress={props.onPress}>
         <Image
           style={getCircularContainerStyles()}
           source={getProfileImage()}
         />
-      </TouchableHighlight>
+      </TouchableOpacity>
       {renderNotifications()}
     </View>
   );
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     color: colors.WHITE,
     fontFamily: fonts.ROBOTO.LIGHT,
   },
-  margin: {
+  container: {
     margin: 8,
   },
 });
