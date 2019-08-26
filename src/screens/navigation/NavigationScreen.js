@@ -56,7 +56,7 @@ const NavigationScreen = (props) => {
           source={ArrowCircle}
         />
         <Text style={styles.friendText}>Evan</Text>
-        <Text style={styles.friendText}>234m</Text>
+        {/* <Text style={styles.friendText}>234m</Text> */}
       </View>
     );
   };
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
     color: colors.ORANGE.CF_GOLD,
     fontFamily: fonts.ROBOTO.LIGHT,
     fontSize: fonts.SIZE.LOGO,
+    top: -30,
   },
   distanceText: {
     color: colors.ORANGE.CF_GOLD,
