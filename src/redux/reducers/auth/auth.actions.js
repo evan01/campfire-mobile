@@ -3,20 +3,23 @@ import deviceStorage, {
   EMAIL_KEY,
   PASSWORD_KEY,
   AUTH_TOKEN_KEY,
+  load,
 } from "../../../services/deviceStorage";
 
 export const LOGIN_ACTION = "LOGIN";
 
 const getCredentialsFromStorage = async () => {
-  const key = await deviceStorage.load(AUTH_TOKEN_KEY, (newKey) => newKey);
-  const username = await deviceStorage.load(EMAIL_KEY);
-  const password = await deviceStorage.load(PASSWORD_KEY);
+  debugger;
+  const key = await load(AUTH_TOKEN_KEY);
+  debugger;
+  // const username = await load(EMAIL_KEY);
+  // const password = await load(PASSWORD_KEY);
 
-  return {
-    key: key,
-    username: username,
-    password: password,
-  };
+  // return {
+  //   key: key,
+  //   username: username,
+  //   password: password,
+  // };
 };
 
 const storeCredentialsInStorage = async (email, password) => {
@@ -26,26 +29,28 @@ const storeCredentialsInStorage = async (email, password) => {
 };
 
 export const logInWithPossibleCredentials = () => {
-  return async (dispatch) => {
-    let apiKey = null;
-    //First check if there is a key ,username and password in local storage
-    const { key, username, password } = getCredentialsFromStorage();
-    if (key) {
-      //Then they have for sure signed in before
-      if (username && password && key) {
-        //Get a new authentication key here, for now don't bother.
+  return (dispatch) => {
+    getCredentialsFromStorage().then((val) => {
+      debugger;
+      let apiKey = null;
+      //First check if there is a key ,username and password in local storage
+      // if (key) {
+      //   //Then they have for sure signed in before
+      //   if (username && password && key) {
+      //     //Get a new authentication key here, for now don't bother.
 
-        // do api call here;
-        apiKey = key;
-      }
-    }
+      //     // do api call here;
+      //     apiKey = key;
+      //   }
+      // }
 
-    //for now forget the authentication step
-    dispatch({
-      type: LOGIN_ACTION,
-      payload: {
-        token: apiKey,
-      },
+      //for now forget the authentication step
+      dispatch({
+        type: LOGIN_ACTION,
+        payload: {
+          token: apiKey,
+        },
+      });
     });
   };
 };

@@ -5,16 +5,11 @@ import PropTypes from "prop-types";
 import _ from "lodash";
 import { connect } from "react-redux";
 import { SafeAreaView } from "react-navigation";
-import {
-  getLocationRequests,
-  acceptLocationRequest,
-  rejectLocationRequest,
-} from "../../redux/reducers/locations/locations.actions";
 import AppHeader from "../../design_system/AppHeader/AppHeader";
 import fonts from "../../design_system/styles/fonts";
 import colors from "../../design_system/styles/colors";
-import LocationRequest from "./components/LocationRequest";
-import { useDropDown } from "../../design_system/Animations/DropDown";
+import LocationRequestContainer from "./components/LocationRequestContainer";
+import AppHeaderContainer from "../AppHeaderContainer";
 
 const propTypes = {
   navigation: PropTypes.object,
@@ -27,62 +22,29 @@ const propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  locationRequests: state.locations.requests,
-  numLocationRequests: state.locations.numRequests,
   account: state.account,
 });
 
-const mapDispatchToProps = {
-  getLocationRequests: getLocationRequests,
-  acceptLocationRequest: acceptLocationRequest,
-  rejectLocationRequest: rejectLocationRequest,
-};
+const mapDispatchToProps = {};
 
 const HomeScreen = (props) => {
-  const { navigation, numLocationRequests, locationRequests } = props;
+  const { navigation, numLocationRequests } = props;
   const { userName, email, profilePicture, password } = props.account;
-  const locationRequestDrop = useDropDown(50, 750);
 
-  useEffect(() => {
-    props.getLocationRequests();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // const renderHeader = () => (
+  //   <AppHeader
+  //     profileImage={profilePicture}
+  //     numNotifications={numLocationRequests}
+  //     navigation={navigation}
+  //   />
+  // );
 
-  const renderHeader = () => (
-    <AppHeader
-      profileImage={profilePicture}
-      numNotifications={numLocationRequests}
-      navigation={navigation}
-    />
-  );
-
-  const renderLocationRequests = () => {
-    const requests = _.map(locationRequests, (user) => {
-      return (
-        <Animated.View
-          style={[styles.locationRequests, { height: locationRequestDrop }]}
-          key={user.name}>
-          <LocationRequest
-            user={user.name}
-            userId={user.userId}
-            onConfirm={props.acceptLocationRequest}
-            onCancel={props.rejectLocationRequest}
-          />
-        </Animated.View>
-      );
-    });
-
-    return (
-      <View>
-        <Text style={styles.header}>Requests</Text>
-        <View style={styles.requests}>{requests}</View>
-      </View>
-    );
-  };
+  const renderHeader = () => <AppHeaderContainer />;
 
   return (
     <SafeAreaView style={styles.background}>
       {renderHeader()}
-      {renderLocationRequests()}
+      <LocationRequestContainer />
       <Button
         onPress={() => navigation.navigate("signIn")}
         title={"go to login screen"}
@@ -114,7 +76,6 @@ const styles = StyleSheet.create({
     fontFamily: fonts.ROBOTO.BOLD,
     fontSize: fonts.SIZE.FONT_SIZE_H2,
     color: colors.ORANGE.CF_SUN,
-    marginLeft: 40,
   },
 });
 

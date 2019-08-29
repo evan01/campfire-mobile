@@ -6,29 +6,27 @@ export const PASSWORD_KEY = "CAMPFIRE_PASSWORD";
 export const AUTH_TOKEN_KEY = "CAMPFIRE_AUTH_KEY";
 export const NAVIGATION_STATE_KEY = "CAMPFIRE_NAVIGATION_STATE";
 
-const deviceStorage = {
-  async store(key, value) {
-    try {
-      await AsyncStorage.setItem(key, JSON.stringify(value));
-    } catch (e) {
-      console.error("Async error", e);
-    }
-  },
-  async load(key, callback = () => {}) {
-    try {
-      const jsonString = await AsyncStorage.getItem(key, callback);
-      return JSON.parse(jsonString);
-    } catch (e) {
-      console.error("Async error", e);
-    }
-  },
-  async delete(key, callback) {
-    try {
-      return await AsyncStorage.removeItem(key, callback);
-    } catch (e) {
-      console.error("Async error", e);
-    }
-  },
+export const store = async (key, value) => {
+  try {
+    await AsyncStorage.setItem(key, JSON.stringify(value));
+  } catch (e) {
+    console.error("Async error", e);
+  }
 };
 
-export default deviceStorage;
+export const load = async (key) => {
+  try {
+    const jsonString = await AsyncStorage.getItem(key);
+    return Promise.resolve(JSON.parse(jsonString));
+  } catch (e) {
+    console.error("Async error", e);
+  }
+};
+
+export const delete_item = async (key, callback) => {
+  try {
+    return await AsyncStorage.removeItem(key, callback);
+  } catch (e) {
+    console.error("Async error", e);
+  }
+};

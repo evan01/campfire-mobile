@@ -96,15 +96,10 @@ const CircleProfile = (props) => {
   };
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={props.onPress}>
-        <Image
-          style={getCircularContainerStyles()}
-          source={getProfileImage()}
-        />
-      </TouchableOpacity>
+    <TouchableOpacity onPress={props.onPress}>
+      <Image style={getCircularContainerStyles()} source={getProfileImage()} />
       {renderNotifications()}
-    </View>
+    </TouchableOpacity>
   );
 };
 

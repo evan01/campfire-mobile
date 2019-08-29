@@ -22,5 +22,7 @@ module.exports = {
     "jest/no-disabled-tests": "warn",
     "react/jsx-one-expression-per-line": 0,
     "react/jsx-filename-extension": 0,
+    "no-shadow": 0,
+    "react-hooks/exhaustive-deps": 0,
   },
 };

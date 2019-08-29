@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import fonts from "../../../design_system/styles/fonts";
 import colors from "../../../design_system/styles/colors";
 import CircleButton from "../../../design_system/CircleButton/CircleButton";
+import CircleProfile from "../../../design_system/CircleProfile/CircleProfile";
 
 const propTypes = {
   user: PropTypes.string,
@@ -38,6 +39,12 @@ const buttonSection = (onConfirm, onCancel) => (
 
 const LocationRequest = ({ user, userId, onConfirm, onCancel }) => (
   <View style={styles.container}>
+    <CircleProfile
+      name={"profile1"}
+      size={42}
+      onPress={() => console.log("profile_press")}
+      borderColor={colors.BLUE.CF_NIGHT}
+    />
     <View>
       <Text style={styles.name}>{user}</Text>
     </View>
