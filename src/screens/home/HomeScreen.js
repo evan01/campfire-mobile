@@ -29,21 +29,10 @@ const mapDispatchToProps = {};
 
 const HomeScreen = (props) => {
   const { navigation, numLocationRequests } = props;
-  const { userName, email, profilePicture, password } = props.account;
-
-  // const renderHeader = () => (
-  //   <AppHeader
-  //     profileImage={profilePicture}
-  //     numNotifications={numLocationRequests}
-  //     navigation={navigation}
-  //   />
-  // );
-
-  const renderHeader = () => <AppHeaderContainer />;
 
   return (
     <SafeAreaView style={styles.background}>
-      {renderHeader()}
+      <AppHeaderContainer />
       <LocationRequestContainer />
       <Button
         onPress={() => navigation.navigate("signIn")}

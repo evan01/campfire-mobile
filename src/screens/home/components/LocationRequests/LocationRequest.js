@@ -19,7 +19,7 @@ const buttonSection = (onConfirm, onCancel) => (
     <View style={styles.buttonContainer}>
       <CircleButton
         icon={"check"}
-        size={40}
+        size={30}
         backgroundColor={colors.GREEN.CF_GOLF}
         iconColor={"white"}
         onPress={onConfirm}
@@ -28,7 +28,7 @@ const buttonSection = (onConfirm, onCancel) => (
     <View style={styles.buttonContainer}>
       <CircleButton
         icon={"close"}
-        size={40}
+        size={30}
         backgroundColor={colors.RED.CF_FIRETRUCK}
         iconColor={"white"}
         onPress={onCancel}
@@ -41,9 +41,9 @@ const LocationRequest = ({ user, userId, onConfirm, onCancel }) => (
   <View style={styles.container}>
     <CircleProfile
       name={"profile1"}
-      size={42}
+      size={40}
       onPress={() => console.log("profile_press")}
-      borderColor={colors.BLUE.CF_NIGHT}
+      borderColor={colors.WHITE}
     />
     <View>
       <Text style={styles.name}>{user}</Text>
@@ -55,18 +55,18 @@ const LocationRequest = ({ user, userId, onConfirm, onCancel }) => (
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    marginVertical: 8,
+    marginVertical: 6,
+    marginHorizontal: 20,
     alignItems: "center",
     justifyContent: "space-between",
   },
   name: {
     fontFamily: fonts.ROBOTO.LIGHT,
-    fontSize: fonts.SIZE.FONT_SIZE_H1,
+    fontSize: fonts.SIZE.FONT_SIZE_H2,
     color: colors.ORANGE.CF_GOLD,
   },
   buttonSection: {
     flexDirection: "row",
-    marginRight: 30,
   },
   buttonContainer: {
     marginHorizontal: 4,

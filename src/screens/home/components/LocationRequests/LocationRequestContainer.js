@@ -6,11 +6,15 @@ import _ from "lodash";
 import { connect } from "react-redux";
 import LocationRequest from "./LocationRequest";
 import { useDropDown } from "../../../design_system/Animations/DropDown";
+import { useOpacity } from "../../../design_system/Animations/Opacity";
 import {
   getLocationRequests,
   acceptLocationRequest,
   rejectLocationRequest,
 } from "../../../redux/reducers/locations/locations.actions";
+import AppIcon from "../../../design_system/AppIcon/AppIcon";
+import colors from "../../../design_system/styles/colors";
+import fonts from "../../../design_system/styles/fonts";
 
 const propTypes = {
   navigation: PropTypes.object,
@@ -37,10 +41,20 @@ const mapDispatchToProps = {
 const LocationRequestContainer = (props) => {
   const locationRequestDrop = useDropDown(50, 750);
   const { locationRequests, getLocationRequests } = props;
+  const titleOpacity = useOpacity();
 
   useEffect(() => {
     getLocationRequests();
   }, []);
+
+  const renderTitle = () => {
+    return (
+      <Animated.View style={[styles.titleHeader, { opacity: titleOpacity }]}>
+        <AppIcon name={"whatshot"} size={30} color={colors.ORANGE.CF_GOLD} />
+        <Text style={styles.title}>Requests</Text>
+      </Animated.View>
+    );
+  };
 
   const renderLocationRequests = () => {
     const requests = _.map(locationRequests, (user) => {
@@ -57,21 +71,34 @@ const LocationRequestContainer = (props) => {
         </Animated.View>
       );
     });
-
-    return (
-      <View>
-        <Text style={styles.header}>Requests</Text>
-        <View style={styles.requests}>{requests}</View>
-      </View>
-    );
+    return <View style={styles.requests}>{requests}</View>;
   };
-  return <View style={styles.container}>{renderLocationRequests()}</View>;
+
+  return (
+    <View style={styles.container}>
+      {renderTitle()}
+      {renderLocationRequests()}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "red",
+    backgroundColor: "white",
+    padding: 6,
+    borderRadius: 20,
+    margin: 20,
   },
+  titleHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  title: {
+    fontFamily: fonts.ROBOTO.MEDIUM,
+    fontSize: 30,
+    color: colors.ORANGE.CF_GOLD,
+  },
+  locationRequests: {},
 });
 
 LocationRequestContainer.propTypes = propTypes;

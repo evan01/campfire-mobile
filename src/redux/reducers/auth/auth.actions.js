@@ -9,7 +9,6 @@ import deviceStorage, {
 export const LOGIN_ACTION = "LOGIN";
 
 const getCredentialsFromStorage = async () => {
-  debugger;
   const key = await load(AUTH_TOKEN_KEY);
   debugger;
   // const username = await load(EMAIL_KEY);
