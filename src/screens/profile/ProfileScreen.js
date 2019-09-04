@@ -1,6 +1,6 @@
 // @flow
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Image, Text, Animated } from "react-native";
+import { View, StyleSheet, Image, Text, Animated, Button } from "react-native";
 import _ from "lodash";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -24,6 +24,7 @@ const mapDispatchToProps = {
 };
 
 const NavigationScreen = (props) => {
+  const { navigation } = props;
   useEffect(() => {}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
@@ -33,6 +34,22 @@ const NavigationScreen = (props) => {
         onProfilePress={() => {}}
         numNotifications={3}
         navigation={props.navigation}
+      />
+      <Button
+        onPress={() => navigation.navigate("signIn")}
+        title={"go to login screen"}
+      />
+      <Button
+        onPress={() => navigation.navigate("storybook")}
+        title={"Storybook"}
+      />
+      <Button
+        onPress={() => navigation.navigate("navigation")}
+        title={"navigation"}
+      />
+      <Button
+        onPress={() => navigation.navigate("friends")}
+        title={"friends"}
       />
     </SafeAreaView>
   );

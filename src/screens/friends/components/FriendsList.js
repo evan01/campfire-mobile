@@ -21,7 +21,7 @@ const FriendsList = (props) => {
 
   const friendList = _.map(friendIds, (friendId) => {
     const renderNameUserName = (name, userName) => (
-      <View>
+      <View style={styles.friendslistItem}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.userName}>{userName}</Text>
       </View>
@@ -57,6 +57,9 @@ const styles = StyleSheet.create({
   friendItem: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  friendslistItem: {
+    marginVertical: 4,
   },
   name: {
     fontFamily: fonts.ROBOTO.LIGHT,

@@ -10,6 +10,7 @@ export default {
     CF_GOLD: "#EE964B",
     CF_FIRE: "#F95738",
     CF_SUN: "#E9C46A",
+    CF_WHITE_PEACH: "#FAF0CA",
   },
   RED: {
     CF_FIRETRUCK: "#F95738",

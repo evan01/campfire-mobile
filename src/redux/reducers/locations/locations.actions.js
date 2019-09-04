@@ -2,6 +2,7 @@
 import _ from "lodash";
 export const SET_LOCATION_REQUESTS = "SET_LOCATION_REQUESTS";
 export const REQUEST_FRIENDS_LOCATION = "REQUEST_FRIENDS_LOCATION";
+export const GET_ACTIVE_LOCATIONS = "GET_ACTIVE_LOCATIONS";
 
 export const getLocationRequests = () => {
   return (dispatch) => {
@@ -69,15 +70,43 @@ export const rejectLocationRequest = (userId) => {
 };
 
 export const requestFriendsLocation = (userId) => {
-  //Efficient api call/websocket query for friends location
-  const friendsLocation = [45.41148, -75.69075];
+  //Efficient api call for requesting a friends location
 
   return (dispatch) => {
     dispatch({
       type: REQUEST_FRIENDS_LOCATION,
       payload: {
-        friendId: userId,
-        friendsLocation: friendsLocation,
+        userId: userId,
+      },
+    });
+  };
+};
+
+export const getActiveLocations = () => {
+  const locations = {
+    user1: {
+      location: [45.41148, -75.69075],
+      expirationDate: 1567137600000,
+    },
+    user2: {
+      location: [45.41148, -75.69075],
+      expirationDate: 1567137600000,
+    },
+    user3: {
+      location: [45.41148, -75.69075],
+      expirationDate: 1567137600000,
+    },
+    user4: {
+      location: [45.41148, -75.69075],
+      expirationDate: 1567137600000,
+    },
+  };
+
+  return (dispatch) => {
+    dispatch({
+      type: GET_ACTIVE_LOCATIONS,
+      payload: {
+        locations: locations,
       },
     });
   };

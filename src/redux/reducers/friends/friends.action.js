@@ -73,55 +73,55 @@ export const removeFriend = (friendId) => {
 export const getFriends = () => {
   //Api call to get friends
   const friends = {
-    33123: {
+    user1: {
       name: "David Knox",
       userName: "Dknox",
       bestFriend: true,
       profilePicture: "profile1",
     },
-    33234: {
+    user2: {
       name: "Monica Conn",
       userName: "youngCurmudeon",
       bestFriend: false,
       profilePicture: "profile2",
     },
-    334234: {
+    user3: {
       name: "Tasnia Khan",
       userName: "JupiterJustice",
       bestFriend: true,
       profilePicture: "profile3",
     },
-    32274: {
+    user4: {
       name: "Jeremy Boilea",
       userName: "Armyguy",
       bestFriend: false,
       profilePicture: "profile4",
     },
-    3267874: {
+    user5: {
       name: "Riley Simons",
       userName: "GalwayGal",
       bestFriend: false,
       profilePicture: "profile5",
     },
-    7874: {
+    user6: {
       name: "Bobby Ethan-Eliott",
       userName: "proSkier2019",
       bestFriend: false,
       profilePicture: "profile6",
     },
-    9974: {
+    user7: {
       name: "Nutan Behki",
       userName: "corporateWarlord",
       bestFriend: false,
       profilePicture: "profile7",
     },
-    1074: {
+    user8: {
       name: "Mira Knox",
       userName: "bookWormInc",
       bestFriend: false,
       profilePicture: "profile8",
     },
-    1078: {
+    user9: {
       name: "Mathew Brady",
       userName: "bookWorkInc",
       bestFriend: false,

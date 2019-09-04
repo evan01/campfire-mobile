@@ -2,10 +2,10 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
-import fonts from "../../../design_system/styles/fonts";
-import colors from "../../../design_system/styles/colors";
-import CircleButton from "../../../design_system/CircleButton/CircleButton";
-import CircleProfile from "../../../design_system/CircleProfile/CircleProfile";
+import fonts from "../../../../design_system/styles/fonts";
+import colors from "../../../../design_system/styles/colors";
+import CircleButton from "../../../../design_system/CircleButton/CircleButton";
+import CircleProfile from "../../../../design_system/CircleProfile/CircleProfile";
 
 const propTypes = {
   user: PropTypes.string,

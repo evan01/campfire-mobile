@@ -1,11 +1,16 @@
 // @flow
 import React from "react";
-import { YellowBox, Platform, View } from "react-native";
+import { YellowBox, Platform, View, StyleSheet } from "react-native";
 import Router from "./screens/Router";
 import { initStore } from "./redux/store";
 import { Provider } from "react-redux";
 import colors from "./design_system/styles/colors";
-// import deviceStorage, { NAVIGATION_STATE_KEY } from "./services/deviceStorage";
+import {
+  load,
+  store,
+  delete_item,
+  NAVIGATION_STATE_KEY,
+} from "./services/deviceStorage";
 
 YellowBox.ignoreWarnings(["Warning: ReactNative.createElement"]);
 const ignoreWarningsList = () => {
@@ -16,36 +21,35 @@ const ignoreWarningsList = () => {
   ]);
 };
 
-// const persistNavigationState = async (navState) => {
-//   try {
-//     deviceStorage.store(NAVIGATION_STATE_KEY, navState);
-//   } catch (err) {
-//     // handle the error according to your needs
-//   }
-// };
-// const loadNavigationState = async () => {
-//   deviceStorage.getItem(NAVIGATION_STATE_KEY).then((key) => {
-//     console.log(key);
-//   });
-// };
+const persistNavigationState = async (navState) => {
+  try {
+    store(NAVIGATION_STATE_KEY, navState);
+  } catch (err) {
+    // handle the error
+  }
+};
+const loadNavigationState = async () => {
+  // await delete_item(NAVIGATION_STATE_KEY); if you ever need to clear nav state
+  return await load(NAVIGATION_STATE_KEY);
+};
 
 const App = () => {
   ignoreWarningsList();
-  //Get Redux
   const store = initStore();
   return (
     <Provider store={store}>
-      <View style={{ flex: 1, backgroundColor: colors.BLUE.CF_NIGHT }}>
+      <View style={styles.app}>
         <Router
-          onNavigationStateChange={(prevState, newState, action) => {
-            // console.log(prevState, newState, action);
-          }}
-          // persistNavigationState={persistNavigationState}
-          // loadNavigationState={loadNavigationState}
+          persistNavigationState={persistNavigationState}
+          loadNavigationState={loadNavigationState}
         />
       </View>
     </Provider>
   );
 };
+
+const styles = StyleSheet.create({
+  app: { flex: 1, backgroundColor: colors.BLUE.CF_NIGHT },
+});
 
 export default App;

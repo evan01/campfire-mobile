@@ -1,24 +1,20 @@
 // @flow
 import React, { useEffect, useState } from "react";
-import { Text, Button, StyleSheet, View, Animated } from "react-native";
+import { Button, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
-import _ from "lodash";
 import { connect } from "react-redux";
 import { SafeAreaView } from "react-navigation";
-import AppHeader from "../../design_system/AppHeader/AppHeader";
 import fonts from "../../design_system/styles/fonts";
 import colors from "../../design_system/styles/colors";
-import LocationRequestContainer from "./components/LocationRequestContainer";
+import LocationRequestContainer from "./components/LocationRequests/LocationRequestContainer";
 import AppHeaderContainer from "../AppHeaderContainer";
+import ActiveLocationsContainer from "./components/ActiveLocations/ActiveLocationsContainer";
 
 const propTypes = {
   navigation: PropTypes.object,
   numLocationRequests: PropTypes.number,
   locationRequests: PropTypes.array,
   account: PropTypes.object,
-  getLocationRequests: PropTypes.func,
-  acceptLocationRequest: PropTypes.func,
-  rejectLocationRequest: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -34,22 +30,7 @@ const HomeScreen = (props) => {
     <SafeAreaView style={styles.background}>
       <AppHeaderContainer />
       <LocationRequestContainer />
-      <Button
-        onPress={() => navigation.navigate("signIn")}
-        title={"go to login screen"}
-      />
-      <Button
-        onPress={() => navigation.navigate("storybook")}
-        title={"Storybook"}
-      />
-      <Button
-        onPress={() => navigation.navigate("navigation")}
-        title={"navigation"}
-      />
-      <Button
-        onPress={() => navigation.navigate("friends")}
-        title={"friends"}
-      />
+      <ActiveLocationsContainer />
     </SafeAreaView>
   );
 };

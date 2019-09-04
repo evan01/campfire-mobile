@@ -5,16 +5,16 @@ import PropTypes from "prop-types";
 import _ from "lodash";
 import { connect } from "react-redux";
 import LocationRequest from "./LocationRequest";
-import { useDropDown } from "../../../design_system/Animations/DropDown";
-import { useOpacity } from "../../../design_system/Animations/Opacity";
 import {
   getLocationRequests,
   acceptLocationRequest,
   rejectLocationRequest,
-} from "../../../redux/reducers/locations/locations.actions";
-import AppIcon from "../../../design_system/AppIcon/AppIcon";
-import colors from "../../../design_system/styles/colors";
-import fonts from "../../../design_system/styles/fonts";
+} from "../../../../redux/reducers/locations/locations.actions";
+import AppIcon from "../../../../design_system/AppIcon/AppIcon";
+import colors from "../../../../design_system/styles/colors";
+import fonts from "../../../../design_system/styles/fonts";
+import { useOpacity } from "../../../../design_system/Animations/Opacity";
+import { useDropDown } from "../../../../design_system/Animations/DropDown";
 
 const propTypes = {
   navigation: PropTypes.object,

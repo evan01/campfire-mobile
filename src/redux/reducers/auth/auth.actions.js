@@ -1,61 +1,39 @@
 // @flow
-import deviceStorage, {
+import {
   EMAIL_KEY,
   PASSWORD_KEY,
   AUTH_TOKEN_KEY,
   load,
+  store,
 } from "../../../services/deviceStorage";
+import { authenticate } from "../../../api/auth/login";
 
 export const LOGIN_ACTION = "LOGIN";
 
-const getCredentialsFromStorage = async () => {
-  const key = await load(AUTH_TOKEN_KEY);
-  debugger;
-  // const username = await load(EMAIL_KEY);
-  // const password = await load(PASSWORD_KEY);
-
-  // return {
-  //   key: key,
-  //   username: username,
-  //   password: password,
-  // };
-};
-
 const storeCredentialsInStorage = async (email, password) => {
-  await deviceStorage.store(EMAIL_KEY, email);
-  await deviceStorage.store(PASSWORD_KEY, password);
+  await store(EMAIL_KEY, email);
+  await store(PASSWORD_KEY, password);
   console.log("Stored credentials");
 };
 
 export const logInWithPossibleCredentials = () => {
-  return (dispatch) => {
-    getCredentialsFromStorage().then((val) => {
-      debugger;
-      let apiKey = null;
-      //First check if there is a key ,username and password in local storage
-      // if (key) {
-      //   //Then they have for sure signed in before
-      //   if (username && password && key) {
-      //     //Get a new authentication key here, for now don't bother.
+  return async (dispatch) => {
+    const key = await load(AUTH_TOKEN_KEY);
 
-      //     // do api call here;
-      //     apiKey = key;
-      //   }
-      // }
-
-      //for now forget the authentication step
-      dispatch({
-        type: LOGIN_ACTION,
-        payload: {
-          token: apiKey,
-        },
-      });
+    //for now forget the authentication step
+    dispatch({
+      type: LOGIN_ACTION,
+      payload: {
+        token: key,
+      },
     });
   };
 };
 
 export const loginWithEmail = (email, password) => {
-  return (dispatch) => {
+  return async (dispatch) => {
+    const response = await authenticate(email, password);
+
     //store username and password in local storage
 
     //Then get the key from the server
@@ -86,8 +64,8 @@ export const loginWithEmail = (email, password) => {
 
 export const logOut = () => {
   //Delete the password/authkey from localstorage
-  deviceStorage.delete(AUTH_TOKEN_KEY);
-  deviceStorage.delete(PASSWORD_KEY);
+  // deviceStorage.delete(AUTH_TOKEN_KEY);
+  // deviceStorage.delete(PASSWORD_KEY);
   return (dispatch) => {
     //Delete clear the redux state.
     dispatch({

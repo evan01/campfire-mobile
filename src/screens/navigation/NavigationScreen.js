@@ -13,12 +13,12 @@ import { SafeAreaView } from "react-navigation";
 
 const propTypes = {
   navigation: PropTypes.object,
-  friendLocation: PropTypes.array,
+  // friendLocation: PropTypes.array,
   friendName: PropTypes.string,
 };
 
 const mapStateToProps = (state) => ({
-  friendLocation: state.locations.friends[state.locations.active],
+  // friendLocation: state.locations.friends[state.locations.active],
   friendName: "Evan", //hardcode until friends in redux
 });
 

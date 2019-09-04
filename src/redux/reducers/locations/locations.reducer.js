@@ -2,12 +2,14 @@
 import {
   SET_LOCATION_REQUESTS,
   REQUEST_FRIENDS_LOCATION,
+  GET_ACTIVE_LOCATIONS,
 } from "./locations.actions";
 
 const defaultState = {
   requests: null,
   numRequests: 0,
-  friends: {},
+  locations: {},
+  locationRequests: {},
 };
 
 const locations = (state = defaultState, action) => {
@@ -22,11 +24,16 @@ const locations = (state = defaultState, action) => {
     case REQUEST_FRIENDS_LOCATION: {
       return {
         ...state,
-        friends: {
-          ...state.friends,
-          [action.payload.friendId]: action.payload.friendsLocation,
+        locationRequests: {
+          ...state.locationRequests,
+          [action.payload.userId]: action.payload.friendsLocation,
         },
-        active: action.payload.friendId,
+      };
+    }
+    case GET_ACTIVE_LOCATIONS: {
+      return {
+        ...state,
+        locations: action.payload.locations,
       };
     }
     default:

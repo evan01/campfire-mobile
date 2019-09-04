@@ -17,7 +17,7 @@ export const store = async (key, value) => {
 export const load = async (key) => {
   try {
     const jsonString = await AsyncStorage.getItem(key);
-    return Promise.resolve(JSON.parse(jsonString));
+    return JSON.parse(jsonString);
   } catch (e) {
     console.error("Async error", e);
   }
