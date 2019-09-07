@@ -1,6 +1,6 @@
 // @flow
 import React, { useEffect, useState } from "react";
-import { Button, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { SafeAreaView } from "react-navigation";
@@ -9,6 +9,7 @@ import colors from "../../design_system/styles/colors";
 import LocationRequestContainer from "./components/LocationRequests/LocationRequestContainer";
 import AppHeaderContainer from "../AppHeaderContainer";
 import ActiveLocationsContainer from "./components/ActiveLocations/ActiveLocationsContainer";
+import SwipeDownView from "../../design_system/SwipeDownView/SwipeDownView";
 
 const propTypes = {
   navigation: PropTypes.object,
@@ -30,7 +31,14 @@ const HomeScreen = (props) => {
     <SafeAreaView style={styles.background}>
       <AppHeaderContainer />
       <LocationRequestContainer />
-      <ActiveLocationsContainer />
+      <View style={styles.swipeDownView}>
+        <SwipeDownView
+          downHeight={50}
+          upHeight={500}
+          backgroundColor={colors.ORANGE.CF_WHITE_PEACH}>
+          <ActiveLocationsContainer />
+        </SwipeDownView>
+      </View>
     </SafeAreaView>
   );
 };
@@ -38,6 +46,7 @@ const HomeScreen = (props) => {
 const styles = StyleSheet.create({
   background: {
     height: "100%",
+    backgroundColor: colors.WHITE,
   },
   locationRequests: {
     marginLeft: 40,
@@ -46,6 +55,11 @@ const styles = StyleSheet.create({
     fontFamily: fonts.ROBOTO.BOLD,
     fontSize: fonts.SIZE.FONT_SIZE_H2,
     color: colors.ORANGE.CF_SUN,
+  },
+  swipeDownView: {
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
   },
 });
 

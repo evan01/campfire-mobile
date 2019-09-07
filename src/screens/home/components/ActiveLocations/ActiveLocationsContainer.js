@@ -85,13 +85,15 @@ const ActiveLocationsContainer = (props) => {
 const styles = StyleSheet.create({
   container: {},
   title: {
-    justifyContent: "center",
+    // justifyContent: "center",
+    paddingLeft: 20,
+    paddingBottom: 10,
     flexDirection: "row",
   },
   titleText: {
-    color: colors.ORANGE.CF_SUN,
+    color: colors.BLUE.CF_MOON,
     fontFamily: fonts.ROBOTO.MEDIUM,
-    fontSize: fonts.SIZE.FONT_SIZE_H1,
+    fontSize: fonts.SIZE.FONT_SIZE_H3,
   },
 });
 

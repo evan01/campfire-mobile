@@ -1,9 +1,7 @@
 // @flow
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Animated, Text } from "react-native";
-import GestureRecognizer, {
-  swipeDirections,
-} from "react-native-swipe-gestures";
+import GestureRecognizer from "react-native-swipe-gestures";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 import PropTypes from "prop-types";
@@ -12,17 +10,36 @@ const propTypes = {
   header: PropTypes.object,
   backgroundColor: PropTypes.string,
   onSwipe: PropTypes.func,
+  downHeight: PropTypes.number,
+  upHeight: PropTypes.number,
 };
 
 const SwipeDownView = (props) => {
-  const viewHeight = new Animated.Value(90);
+  const viewHeight = new Animated.Value(props.downHeight);
+  const viewOpacity = new Animated.Value(0);
 
   const onSwipeUp = () => {
-    Animated.spring(viewHeight, { toValue: 500, friction: 5 }).start();
+    Animated.spring(viewHeight, {
+      toValue: props.upHeight,
+      friction: 5,
+    }).start();
+
+    Animated.spring(viewOpacity, {
+      toValue: 1,
+      friction: 1,
+    });
   };
 
   const onSwipeDown = () => {
-    Animated.spring(viewHeight, { toValue: 90, friction: 5 }).start();
+    Animated.spring(viewHeight, {
+      toValue: props.downHeight,
+      friction: 7,
+    }).start();
+
+    Animated.spring(viewOpacity, {
+      toValue: 0,
+      friction: 1,
+    });
   };
 
   const animatedContainerStyle = {
@@ -39,7 +56,7 @@ const SwipeDownView = (props) => {
   );
 
   return (
-    <Animated.View style={[styles, animatedContainerStyle]}>
+    <Animated.View style={animatedContainerStyle}>
       <GestureRecognizer
         style={styles.gestureContainer}
         config={{
@@ -70,9 +87,12 @@ const styles = StyleSheet.create({
   headerSpaceContainer: {
     alignItems: "center",
     justifyContent: "center",
-    padding: 20,
+    paddingTop: 20,
   },
 });
 
+SwipeDownView.defaultProps = {
+  onSwipe: () => {},
+};
 SwipeDownView.propTypes = propTypes;
 export default SwipeDownView;

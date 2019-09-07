@@ -43,6 +43,8 @@ storiesOf("SwipeDownView", module)
           console.log(state);
         }}
         header={header}
+        downHeight={90}
+        upHeight={500}
         backgroundColor={colors.ORANGE.CF_WHITE_PEACH}>
         {body}
       </SwipeDownView>
@@ -55,6 +57,8 @@ storiesOf("SwipeDownView", module)
           console.log(dir);
           console.log(state);
         }}
+        downHeight={90}
+        upHeight={500}
         backgroundColor={colors.ORANGE.CF_WHITE_PEACH}>
         {body}
       </SwipeDownView>

@@ -5,15 +5,17 @@ import PropTypes from "prop-types";
 
 const propTypes = {};
 
-const LocationRequestArea = () => {
+const HalfModal = (props) => {
   return <View style={styles.container}></View>;
 };
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "red",
+    height: 10,
+    width: "100%",
   },
 });
 
-LocationRequestArea.propTypes = propTypes;
-export default LocationRequestArea;
+HalfModal.propTypes = propTypes;
+export default HalfModal;
