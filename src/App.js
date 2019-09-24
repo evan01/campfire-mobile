@@ -1,7 +1,14 @@
 // @flow
 import React from "react";
-import { YellowBox, Platform, View, StyleSheet } from "react-native";
-import Router from "./screens/Router";
+import {
+  YellowBox,
+  Platform,
+  View,
+  StyleSheet,
+  SafeAreaView,
+  Dimensions,
+} from "react-native";
+import Router from "./containers/Router";
 import { initStore } from "./redux/store";
 import { Provider } from "react-redux";
 import colors from "./design_system/styles/colors";
@@ -36,20 +43,21 @@ const loadNavigationState = async () => {
 const App = () => {
   ignoreWarningsList();
   const store = initStore();
+  const width = Dimensions.get("window").width;
+  const height = Dimensions.get("window").height;
+
+  const appContainerStyles = { backgroundColor: colors.WHITE, height: height };
+
   return (
-    <Provider store={store}>
-      <View style={styles.app}>
+    <SafeAreaView style={appContainerStyles}>
+      <Provider store={store}>
         <Router
           persistNavigationState={persistNavigationState}
           loadNavigationState={loadNavigationState}
         />
-      </View>
-    </Provider>
+      </Provider>
+    </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  app: { flex: 1, backgroundColor: colors.BLUE.CF_NIGHT },
-});
 
 export default App;

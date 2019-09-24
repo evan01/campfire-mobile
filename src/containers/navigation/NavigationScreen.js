@@ -83,7 +83,9 @@ const NavigationScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    height: "100%",
+  },
   navCircleContainer: {
     margin: 10,
     justifyContent: "center",
@@ -98,7 +100,6 @@ const styles = StyleSheet.create({
     color: colors.ORANGE.CF_GOLD,
     fontFamily: fonts.ROBOTO.LIGHT,
     fontSize: fonts.SIZE.LOGO,
-    top: -30,
   },
   distanceText: {
     color: colors.ORANGE.CF_GOLD,

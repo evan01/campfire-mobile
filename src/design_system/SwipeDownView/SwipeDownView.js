@@ -12,34 +12,46 @@ const propTypes = {
   onSwipe: PropTypes.func,
   downHeight: PropTypes.number,
   upHeight: PropTypes.number,
+  show: PropTypes.bool,
 };
 
 const SwipeDownView = (props) => {
+  const { show } = props;
+  const [isUp, setIsUp] = useState(show);
   const viewHeight = new Animated.Value(props.downHeight);
   const viewOpacity = new Animated.Value(0);
 
-  const onSwipeUp = () => {
-    Animated.spring(viewHeight, {
-      toValue: props.upHeight,
-      friction: 5,
-    }).start();
+  useEffect(() => {
+    if (show) {
+      onSwipeUp();
+    } else {
+      onSwipeDown();
+    }
+  }, [show]);
 
-    Animated.spring(viewOpacity, {
-      toValue: 1,
-      friction: 1,
-    });
+  const onSwipeUp = () => {
+    debugger;
+    if (!isUp) {
+      Animated.spring(viewHeight, {
+        toValue: props.upHeight,
+        friction: 5,
+      }).start();
+      setIsUp(true);
+    } else {
+      setIsUp(true);
+    }
   };
 
   const onSwipeDown = () => {
-    Animated.spring(viewHeight, {
-      toValue: props.downHeight,
-      friction: 7,
-    }).start();
-
-    Animated.spring(viewOpacity, {
-      toValue: 0,
-      friction: 1,
-    });
+    if (isUp) {
+      Animated.spring(viewHeight, {
+        toValue: props.downHeight,
+        friction: 5,
+      }).start();
+      setIsUp(false);
+    } else {
+      setIsUp(false);
+    }
   };
 
   const animatedContainerStyle = {
@@ -65,7 +77,7 @@ const SwipeDownView = (props) => {
         }}
         onSwipe={(dir, state) => props.onSwipe(dir, state)}
         onSwipeDown={(dir, state) => onSwipeDown(state)}
-        onSwipeUp={({ state }) => onSwipeUp(state)}>
+        onSwipeUp={(dir, state) => onSwipeUp(state)}>
         {props.header ? props.header : defaultHeader()}
         {props.children}
       </GestureRecognizer>

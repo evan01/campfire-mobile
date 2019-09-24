@@ -62,6 +62,7 @@
 		856A13CF838A422DB30BCEC0 /* Profile6.png in Resources */ = {isa = PBXBuildFile; fileRef = DB10AC165EC446F899D9C7AD /* Profile6.png */; };
 		5D95204F315B4AB1BBB7434B /* Profile7.png in Resources */ = {isa = PBXBuildFile; fileRef = 3699810811D445D1848A5364 /* Profile7.png */; };
 		47AABC19ACCD4077B65B37D0 /* Profile8.png in Resources */ = {isa = PBXBuildFile; fileRef = ABFDE33151F04F4B961B0FF6 /* Profile8.png */; };
+		FF37E12F83CB407FAC62D86D /* CampfireLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A6446E6258FF4E5FACAB7C6F /* CampfireLogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		DB10AC165EC446F899D9C7AD /* Profile6.png */ = {isa = PBXFileReference; name = "Profile6.png"; path = "../src/assets/images/profilePictures/Profile6.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		3699810811D445D1848A5364 /* Profile7.png */ = {isa = PBXFileReference; name = "Profile7.png"; path = "../src/assets/images/profilePictures/Profile7.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		ABFDE33151F04F4B961B0FF6 /* Profile8.png */ = {isa = PBXFileReference; name = "Profile8.png"; path = "../src/assets/images/profilePictures/Profile8.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A6446E6258FF4E5FACAB7C6F /* CampfireLogo.png */ = {isa = PBXFileReference; name = "CampfireLogo.png"; path = "../src/assets/images/CampfireLogo/CampfireLogo.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 				DB10AC165EC446F899D9C7AD /* Profile6.png */,
 				3699810811D445D1848A5364 /* Profile7.png */,
 				ABFDE33151F04F4B961B0FF6 /* Profile8.png */,
+				A6446E6258FF4E5FACAB7C6F /* CampfireLogo.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				856A13CF838A422DB30BCEC0 /* Profile6.png in Resources */,
 				5D95204F315B4AB1BBB7434B /* Profile7.png in Resources */,
 				47AABC19ACCD4077B65B37D0 /* Profile8.png in Resources */,
+				FF37E12F83CB407FAC62D86D /* CampfireLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

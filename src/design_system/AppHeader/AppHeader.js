@@ -17,7 +17,7 @@ const AppHeader = ({ profileImage, numNotifications, navigation }) => {
     <View style={styles.container}>
       <CircleProfile
         name={profileImage}
-        size={40}
+        size={50}
         borderColor={colors.WHITE}
         notifications={numNotifications}
         onPress={() => navigation.navigate("profile")}
